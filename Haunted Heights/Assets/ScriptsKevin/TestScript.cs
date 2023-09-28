@@ -23,23 +23,23 @@ public class TestScript : MonoBehaviour
         if(objectSpawn > 0)
             objectSpawn-= Time.deltaTime;
 
-        if(objectSpawn<0 && spawnCount<4)
+        if(objectSpawn<0 /*&& spawnCount<4*/)
         {
             int randomIndex = Random.Range(0,selectObject.Length);
-            Vector3 randomSpawnPosition=new Vector3(Random.Range(-10,11),5,Random.Range(-10,11));
+            Vector3 randomSpawnPosition=new Vector3(Random.Range(-5,8),5,0);
 
             Instantiate(selectObject[randomIndex], randomSpawnPosition, Quaternion.identity);
             spawnCount++;
             objectSpawn = objectSpawnDupe;
 
-        }
+        }/*
         else if(spawnCount ==4)
         {
             //wait for objects to be destroyed
             //if(objects in range ==0)
                 //objects destroyerd == true;
 
-        }
+        }*/
 
     }
 }

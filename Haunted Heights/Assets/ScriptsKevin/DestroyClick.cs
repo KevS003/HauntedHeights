@@ -1,23 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class DestroyClick : MonoBehaviour
 {
-
-
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetMouseButtonDown(0))
         {
-                    Debug.Log("IT WORKS");
-        Destroy(gameObject);
-        }
-    }
-    /*void OnMouseDown()
-    {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            
-    }*/
+            if(Physics.Raycast(ray, out hit))
+            {
+                Collider bc = hit.collider as Collider;
+                if(bc!= null)
+                {
+                    Destroy(bc.gameObject);
+                }
+            }
+        }
+
+
+    }
+
+
+    
 }
