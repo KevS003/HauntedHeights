@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour
     public GameObject cameraTrack;
 
     public CubeController checkHitOnBox;
+    public ScoreTracking scoreRef;
     private Vector3 cameraTransform;
     public int spawnCount;//amount of items spawned //reset number once all objects are destroyed//UPDATE OBJECTS SPAWNED IF THIS CHANGES
     public bool objectsDestroyed;//checks if objects are destroyed currently not in use //number used to reset
@@ -26,10 +27,11 @@ public class Spawner : MonoBehaviour
     {
         cameraTransform =cameraTrack.transform.position;
         if(objectSpawn > 0)
-            objectSpawn-= Time.deltaTime;
+            objectSpawn-= Time.deltaTime + (.00025f * scoreRef.totalScore);
     }
-    private void FixedUpdate() {
-                if(objectSpawn<0 && spawnCount<4 && checkHitOnBox.stop == true)
+    private void FixedUpdate() 
+    {
+        if(objectSpawn<0 && spawnCount<4 && checkHitOnBox.stop == true)
         {
             int randomIndex = Random.Range(0,selectObject.Length);
             Vector3 randomSpawnPosition=new Vector3(Random.Range(cameraTransform.x-5,cameraTransform.x+8),cameraTransform.y,cameraTransform.z+10);//change range to reference the cameras current position. 
