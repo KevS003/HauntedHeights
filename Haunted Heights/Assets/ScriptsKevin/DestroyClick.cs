@@ -7,10 +7,12 @@ public class DestroyClick : MonoBehaviour
 {
     public int objectsDestroyed = 0;
     [SerializeField] private int objectsSpawned = 4;//Holds number of objects spawning 
+    public GameObject stopBox;
     public GameObject spawner;
     public GameObject scoreTracker;
     private Spawner functCall;
     private ScoreTracking scoreFunctCall;
+    public CubeController giveDestroyNumToControl;
 
     //script reference
 
@@ -31,8 +33,12 @@ public class DestroyClick : MonoBehaviour
                 Collider bc = hit.collider as Collider;
                 if(bc!= null)
                 {
-                    Destroy(bc.gameObject);
-                    objectsDestroyed++;
+                    if(bc.gameObject.tag == "gameObject")
+                    {
+                        Destroy(bc.gameObject);
+                        objectsDestroyed++;
+                        giveDestroyNumToControl.OnNailDestroyed();
+                    }
                 }
             }
         }
@@ -41,7 +47,11 @@ public class DestroyClick : MonoBehaviour
         {
             scoreFunctCall.PlayerScored();
             functCall.ResetSpawnCount();
+            //call function to destroy object 
             objectsDestroyed=0;
+            //GIVE NUM DESTROYED TO CUBE CONTROLLER
+            //That num will destroy object in path and start movement 
+
         }
 
 
