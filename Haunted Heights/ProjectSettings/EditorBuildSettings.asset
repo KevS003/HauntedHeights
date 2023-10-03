@@ -8,6 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 4372e63a9fbac32419516f2873a5ddcd
+  - enabled: 1
+    path: Assets/Scenes/ElonHealthTest.unity
+    guid: b6474484fb096f245b4de3dee249e0d1
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: 190c83a5474127b458f76168da507664
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 8efa24072cd1df249bf9ef7ae2b723f5,
       type: 2}
