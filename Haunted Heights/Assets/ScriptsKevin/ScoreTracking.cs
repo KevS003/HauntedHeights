@@ -8,6 +8,7 @@ public class ScoreTracking : MonoBehaviour //controls UI and score tracking. Cou
     public GameObject scoreCount;
     private TextMeshProUGUI scoreCountText;
 
+
     public int totalScore=0;
     // Start is called before the first frame update
     void Start()
