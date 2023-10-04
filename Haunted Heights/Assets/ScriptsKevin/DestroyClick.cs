@@ -19,6 +19,7 @@ public class DestroyClick : MonoBehaviour
     private int nailOrder=1;
 
     //script reference
+    public EnemyController enemySpeedRef;
 
     private void Start() 
     {
@@ -52,8 +53,11 @@ public class DestroyClick : MonoBehaviour
                                 nailOrder++;
                             giveDestroyNumToControl.OnNailDestroyed();
                         }
-                        //else//respawn nails
-                        //else if()
+                        //else//speed up ghost
+                        else
+                        {
+                            enemySpeedRef.speedUpGhost();
+                        }
                     }
                     
                 }
