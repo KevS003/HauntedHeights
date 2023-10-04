@@ -58,10 +58,10 @@ public class CubeController : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision other)// 
+    public void OnCollisionEnter(Collision other)// 
     {
         
-        //stopBlockRef = storeRef.gameObject;
+         //stopBlockRef = storeRef.gameObject;
         if(other.gameObject.tag == "Stop")
         {
             GameObject storeRef = other.gameObject;
@@ -69,15 +69,17 @@ public class CubeController : MonoBehaviour
             stopBlockRef = storeRef.gameObject;
             Debug.Log("I am here");
         }
+            
+    }
 
+    public void OnTriggerEnter(Collider other)
+{
         if(other.gameObject.tag == "Enemy")
         {
             TakeDamage(1);
             Debug.Log("Lost health");
         }
-            
-    }
-
+}
     public void OnNailDestroyed()
     {
         blocksDestroyed++;
