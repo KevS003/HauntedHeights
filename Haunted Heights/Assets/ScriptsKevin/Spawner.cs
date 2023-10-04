@@ -10,6 +10,7 @@ public class Spawner : MonoBehaviour
     public CubeController checkHitOnBox;
     public ScoreTracking scoreRef;
     private Vector3 cameraTransform;
+    private NailNumberAssign spawnIndexTrack;
     public int spawnCount;//amount of items spawned //reset number once all objects are destroyed//UPDATE OBJECTS SPAWNED IF THIS CHANGES
     public bool objectsDestroyed;//checks if objects are destroyed currently not in use //number used to reset
 
@@ -36,9 +37,11 @@ public class Spawner : MonoBehaviour
             int randomIndex = Random.Range(0,selectObject.Length);
             Vector3 randomSpawnPosition=new Vector3(Random.Range(cameraTransform.x-5,cameraTransform.x+8),cameraTransform.y,cameraTransform.z+10);//change range to reference the cameras current position. 
 
-            Instantiate(selectObject[randomIndex], randomSpawnPosition, Quaternion.identity);
+            GameObject currentNail = Instantiate(selectObject[randomIndex], randomSpawnPosition, Quaternion.identity);
             spawnCount++;
             objectSpawn = objectSpawnDupe;
+            spawnIndexTrack = currentNail.GetComponent<NailNumberAssign>();
+            spawnIndexTrack.AssignNumber(spawnCount);
 
         }
     }

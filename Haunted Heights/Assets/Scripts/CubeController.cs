@@ -34,19 +34,19 @@ public class CubeController : MonoBehaviour
             transform.Translate(GameManager.moveVector * GameManager.moveSpeed * Time.deltaTime);
         else if(blocksDestroyed == 4)
         {
-            Debug.Log("DESTROYYYYYYYYYYYY PLEASEEEEEEEEEEEE");
+            //Debug.Log("DESTROYYYYYYYYYYYY PLEASEEEEEEEEEEEE");
             Destroy(stopBlockRef);
             stop = false;
             blocksDestroyed =0;
-        }
+        }/*
         if(stopBlockRef == null)
         {
-            Debug.Log("No read");
+            //Debug.Log("No read");
         }
         else
         {
-            Debug.Log("Got it");
-        }
+            //Debug.Log("Got it");
+        }*/
 
         if(Input.GetKey("escape"))
             Application.Quit();
@@ -67,7 +67,7 @@ public class CubeController : MonoBehaviour
             GameObject storeRef = other.gameObject;
             stop = true;
             stopBlockRef = storeRef.gameObject;
-            Debug.Log("I am here");
+            //Debug.Log("I am here");
         }
 
         if(other.gameObject.tag == "Enemy")
