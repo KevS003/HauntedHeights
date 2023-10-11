@@ -81,7 +81,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 031c6466175bd5d448053e2a2f37df4c,
         type: 3}
       propertyPath: m_Name
-      value: Nail (1) Variant
+      value: NailObject
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 031c6466175bd5d448053e2a2f37df4c,
         type: 3}
@@ -96,6 +96,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1477948303108633340}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 031c6466175bd5d448053e2a2f37df4c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1430234333960805569}
   m_SourcePrefab: {fileID: 100100000, guid: 031c6466175bd5d448053e2a2f37df4c, type: 3}
 --- !u!1 &3879998669590717925 stripped
 GameObject:
@@ -126,3 +130,15 @@ CapsuleCollider:
   m_Height: 44.112675
   m_Direction: 1
   m_Center: {x: 0, y: 22.056337, z: 0}
+--- !u!114 &-1430234333960805569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3879998669590717925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 737e58da73491bc44af45b661409da39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
