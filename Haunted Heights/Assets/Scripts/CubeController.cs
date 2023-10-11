@@ -10,6 +10,7 @@ public class CubeController : MonoBehaviour
 
     gameManager GameManager;
     private int blocksDestroyed;
+    private int currentBlock=0;
     public bool stop;
     private GameObject stopBlockRef= null;
     public float health = 3;
@@ -31,22 +32,22 @@ public class CubeController : MonoBehaviour
         //Use collision to respawn nails
         //If statement when making contact with box that activates variable
         if(stop == false)//detects collision to stop movement
-            transform.Translate(GameManager.moveVector * GameManager.moveSpeed * Time.deltaTime);
+            transform.Translate(GameManager.moveVector * GameManager.moveSpeed * Time.deltaTime); 
         else if(blocksDestroyed == 4)
         {
-            //Debug.Log("DESTROYYYYYYYYYYYY PLEASEEEEEEEEEEEE");
             Destroy(stopBlockRef);
             stop = false;
             blocksDestroyed =0;
-        }/*
-        if(stopBlockRef == null)
-        {
-            //Debug.Log("No read");
         }
-        else
+        else if(stop == true)
         {
-            //Debug.Log("Got it");
-        }*/
+            //stop crawl animation
+            if(blocksDestroyed>currentBlock)
+            {
+                //play hammer animation
+            }
+        }
+   
 
         if(Input.GetKey("escape"))
             Application.Quit();
