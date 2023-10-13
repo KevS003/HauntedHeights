@@ -6,11 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/GameScene.unity
-    guid: 4372e63a9fbac32419516f2873a5ddcd
+    path: Assets/Scenes/MainMenu.unity
+    guid: deffefadfbe15de44b4781c36ea15a5a
   - enabled: 1
     path: Assets/Scenes/ElonHealthTest.unity
     guid: b6474484fb096f245b4de3dee249e0d1
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: 4372e63a9fbac32419516f2873a5ddcd
   - enabled: 1
     path: Assets/Scenes/End.unity
     guid: 190c83a5474127b458f76168da507664
