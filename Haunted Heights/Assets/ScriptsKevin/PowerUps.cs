@@ -36,20 +36,21 @@ public class PowerUps : MonoBehaviour
         {
             //give extra score per tile
             Debug.Log("Multi");
+            scoreMult.PlayerDouble();
         }
-        if(slowGhost)
+        else if(slowGhost)
         {
             //slow down ghost
         }
-        if(buildHammer)
+        else if(buildHammer)
         {
             //autobuildtiles
         }
-        if(extraLife)
+        else if(extraLife)
         {
             //give one more try
         }
-        if(invincibility)
+        else if(invincibility)
         {
             //no die 
         }
