@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,10 @@ public class DestroyClick : MonoBehaviour
 
     //script reference
     public EnemyController enemySpeedRef;
+
+    //powerupstuff
+    private bool autoBuild = false;
+    private float autoBuildTime;
 
     private void Start() 
     {
@@ -62,7 +67,25 @@ public class DestroyClick : MonoBehaviour
                     
                 }
             }
+            
         }
+        else if(autoBuildTime >0.0f)//AutoBuilds on timer, calls necessary functions on other scripts
+        {
+            autoBuildTime -= Time.deltaTime;
+            Debug.Log("AutoBuild timer: "+ autoBuildTime);
+            Destroy(GameObject.FindWithTag("gameObject"));
+            if(functCall.spawnCount == 4)
+            {
+                giveDestroyNumToControl.AutoDestroyOn();
+                scoreFunctCall.PlayerScored();
+                functCall.ResetSpawnCount();
+            }
+                
+
+
+        }
+            
+
         
         if(objectsDestroyed == objectsSpawned)
         {
@@ -77,6 +100,11 @@ public class DestroyClick : MonoBehaviour
         }
 
 
+    }
+
+    public void AutoBuild(float time)
+    {
+        autoBuildTime = time;
     }
     
 }

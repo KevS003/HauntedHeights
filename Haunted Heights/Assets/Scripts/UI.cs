@@ -16,7 +16,7 @@ public class UI : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            SceneManager.LoadScene("ElonHealthTest");
+            SceneManager.LoadScene(0);
         }
 
     }

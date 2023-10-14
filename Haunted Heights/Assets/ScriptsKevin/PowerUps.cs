@@ -22,12 +22,21 @@ public class PowerUps : MonoBehaviour
     private bool extraLife;
     [SerializeField]
     private bool invincibility;
+
+    //Select time of auto destruct
+    [SerializeField]
+    private float autoDestructTime = 10f;
+
     private void Awake() 
     {
-        scoreMult.GetComponent<ScoreTracking>();
-        ghostSpeed.GetComponent<EnemyController>();
-        autoDestroyNails.GetComponent<DestroyClick>();
-        extraLifeInv.GetComponent<CubeController>();    
+        if(multiplier)
+            scoreMult.GetComponent<ScoreTracking>();
+        if(slowGhost)
+            ghostSpeed.GetComponent<EnemyController>();
+        if(buildHammer)
+            autoDestroyNails.GetComponent<DestroyClick>();
+        if(extraLife)
+            extraLifeInv.GetComponent<CubeController>();    
     }
     private void OnTriggerEnter(Collider other) 
     {
@@ -41,10 +50,12 @@ public class PowerUps : MonoBehaviour
         else if(slowGhost)
         {
             //slow down ghost
+            ghostSpeed.speedDownGhost();
         }
         else if(buildHammer)
         {
             //autobuildtiles
+            autoDestroyNails.AutoBuild(autoDestructTime);
         }
         else if(extraLife)
         {

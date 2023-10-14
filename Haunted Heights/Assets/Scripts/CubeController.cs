@@ -9,18 +9,24 @@ public class CubeController : MonoBehaviour
 {
 
     gameManager GameManager;
+    [SerializeField]
+    private Animator playerAnims;
     private int blocksDestroyed;
     private int currentBlock=0;
     public bool stop;
     private GameObject stopBlockRef= null;
     public float health = 3;
-//objects destroyed = 4 
-//
+    //TEMPORARY SOLUTION VAR
+    private float animSpeedStart;
+    //camera shake
+    public CameraShake camShakeRef;
+
  
     void Start()
     {
         GameObject gameController = GameObject.FindGameObjectWithTag("GameController");
         GameManager = gameController.GetComponent<gameManager>();
+        animSpeedStart = playerAnims.speed;
 
     }
 
@@ -38,10 +44,15 @@ public class CubeController : MonoBehaviour
             Destroy(stopBlockRef);
             stop = false;
             blocksDestroyed =0;
+            playerAnims.speed = animSpeedStart;//TEMPORARY SOLUTION
+            //turn off cam shake
+            //camShakeRef.StopShake();
         }
         else if(stop == true)
         {
-            //stop crawl animation
+            playerAnims.speed = 0;//TEMPORARY SOLUTION
+            //turn on cam shake
+            //camShakeRef.StartShake();
             if(blocksDestroyed>currentBlock)
             {
                 //play hammer animation
@@ -80,6 +91,9 @@ public class CubeController : MonoBehaviour
             TakeDamage(1);
             Debug.Log("Lost health");
         }
+        else if(other.gameObject.tag == "Win")
+            SceneManager.LoadScene("End");
+
 }
     public void OnNailDestroyed()
     {
@@ -89,5 +103,9 @@ public class CubeController : MonoBehaviour
     public void TakeDamage(float Damage)
     {
         health -= Damage;
+    }
+    public void AutoDestroyOn()
+    {
+        blocksDestroyed = 4;
     }
 }

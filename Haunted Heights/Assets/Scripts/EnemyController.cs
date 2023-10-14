@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
    
     gameManager GameManager;
     public ScoreTracking scoreRef;
+    private float minSpeedGhost;
 
     
 
@@ -17,6 +18,7 @@ public class EnemyController : MonoBehaviour
     {
         GameObject gameController = GameObject.FindGameObjectWithTag("GameController");
         GameManager = gameController.GetComponent<gameManager>();
+        minSpeedGhost = GameManager.enemySpeed;
     }
 
     // Update is called once per frame
@@ -32,6 +34,15 @@ public class EnemyController : MonoBehaviour
     {
         GameManager.enemySpeed /= GameManager.speedMultiplier;//HUH
         //transform.Translate(GameManager.moveVector * GameManager.enemySpeed * GameManager.speedMultiplier *  Time.deltaTime);
+        Debug.Log(GameManager.enemySpeed.ToString());
+    }
+
+    public void speedDownGhost()
+    {
+        if(GameManager.enemySpeed > minSpeedGhost)
+            GameManager.enemySpeed *= GameManager.speedMultiplier;//HUH
+        else
+            GameManager.enemySpeed = minSpeedGhost;
         Debug.Log(GameManager.enemySpeed.ToString());
     }
 

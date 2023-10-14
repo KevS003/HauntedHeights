@@ -100,7 +100,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -118,16 +118,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca901a341d6b7994eb3c6b2da8f292ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreMult: {fileID: 7662167155466729731, guid: bbfe24b88fe352641bd7c2f6a0933770,
-    type: 3}
-  ghostSpeed: {fileID: 885629547290289569, guid: 30730abc6c7c39640bf64577a0d7b5cc,
-    type: 3}
-  autoDestroyNails: {fileID: 747475104344081993, guid: 1d4df983169ea894f9fd3b09719172ae,
-    type: 3}
-  extraLifeInv: {fileID: 8338333610701305374, guid: 78983faf377c302429813c25bc079bc3,
-    type: 3}
+  scoreMult: {fileID: 0}
+  ghostSpeed: {fileID: 0}
+  autoDestroyNails: {fileID: 0}
+  extraLifeInv: {fileID: 0}
   multiplier: 0
   slowGhost: 0
   buildHammer: 1
   extraLife: 0
   invincibility: 0
+  autoDestructTime: 10

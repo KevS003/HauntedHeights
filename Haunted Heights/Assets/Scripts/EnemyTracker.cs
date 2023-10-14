@@ -45,7 +45,7 @@ public class EnemyTracker : MonoBehaviour
 
     void Update()
     {
-        enemyTrackerText.text = distance.ToString();
+        enemyTrackerText.text = "Distance from ghost: " + distance.ToString("0");
     }
 
 }
