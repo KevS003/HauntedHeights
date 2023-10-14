@@ -92,12 +92,15 @@ public class CubeController : MonoBehaviour
             Debug.Log("Lost health");
         }
         else if(other.gameObject.tag == "Win")
-            SceneManager.LoadScene("End");
+            SceneManager.LoadScene("WinScreen");
 
 }
-    public void OnNailDestroyed()
+    public void OnNailDestroyed(bool autoDestroy)
     {
-        blocksDestroyed++;
+        if(autoDestroy == false)
+            blocksDestroyed++;
+        else if(autoDestroy == true)
+            blocksDestroyed = 4;//hardcoded
     }
 
     public void TakeDamage(float Damage)
@@ -106,6 +109,6 @@ public class CubeController : MonoBehaviour
     }
     public void AutoDestroyOn()
     {
-        blocksDestroyed = 4;
+        blocksDestroyed = 4;//hardcoded
     }
 }

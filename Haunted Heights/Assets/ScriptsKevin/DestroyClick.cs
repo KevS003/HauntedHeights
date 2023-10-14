@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -25,6 +26,10 @@ public class DestroyClick : MonoBehaviour
     //powerupstuff
     private bool autoBuild = false;
     private float autoBuildTime;
+    //clean up left overs
+    private bool cleanUp=false;
+    private bool checkForObj = false;
+    private bool blockDestroy = false;
 
     private void Start() 
     {
@@ -49,14 +54,36 @@ public class DestroyClick : MonoBehaviour
                 {
                     if(bc.gameObject.tag == "gameObject")
                     {
-                        //detect if they are destorying in the right order
-                        if(nailNumRef.spawnNumOrder == nailOrder)
+                        //detect if they are destroying in the right order
+                        if(nailNumRef.spawnNumOrder == nailOrder || cleanUp == true)//checks the nail picked
                         {
+                            if(cleanUp == true)
+                            {
+                                //track how many destroyed to fix spawn counter
+                                //subtract whatever was destroyed by 4 to find out how many nails were left.
+                                //add it onto the nail order to reorder the nail order properly
+                            }
+                            if(cleanUp == true && nailNumRef.lastOne == true)
+                            {
+                                nailOrder = 4;
+                                blockDestroy = true;
+                            }
                             Destroy(bc.gameObject);
                             objectsDestroyed++;
-                            if(nailOrder<4)
+                            if(nailOrder<4 && cleanUp == false)
                                 nailOrder++;
-                            giveDestroyNumToControl.OnNailDestroyed();
+                            giveDestroyNumToControl.OnNailDestroyed(blockDestroy);
+                            if(blockDestroy == true)//massive reset
+                            {
+                                blockDestroy = false;
+                                cleanUp = false;
+                                functCall.ResetSpawnCount();
+                                nailOrder = 1;
+                                objectsDestroyed = 0;
+                            }
+                                
+
+                                
                         }
                         //else//speed up ghost
                         else
@@ -69,11 +96,13 @@ public class DestroyClick : MonoBehaviour
             }
             
         }
-        else if(autoBuildTime >0.0f)//AutoBuilds on timer, calls necessary functions on other scripts
+        else if(autoBuildTime >0.01f)//AutoBuilds on timer, calls necessary functions on other scripts
         {
             autoBuildTime -= Time.deltaTime;
             Debug.Log("AutoBuild timer: "+ autoBuildTime);
             Destroy(GameObject.FindWithTag("gameObject"));
+            cleanUp = true;
+            //Debug.Log("Current nail num: "+ nailOrder);
             if(functCall.spawnCount == 4)
             {
                 giveDestroyNumToControl.AutoDestroyOn();
@@ -98,7 +127,6 @@ public class DestroyClick : MonoBehaviour
             //That num will destroy object in path and start movement 
 
         }
-
 
     }
 
