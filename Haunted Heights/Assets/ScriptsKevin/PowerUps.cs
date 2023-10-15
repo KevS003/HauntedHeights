@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -38,23 +39,26 @@ public class PowerUps : MonoBehaviour
         if(extraLife)
             extraLifeInv.GetComponent<CubeController>();    
     }
-    private void OnTriggerEnter(Collider other) 
+    private void OnTriggerEnter(Collider other) //control F UI in said scripts to find where UI input should go
     {
         //point multiplier
         if(multiplier)
         {
             //give extra score per tile
+            //UI feedback in score tracker
             Debug.Log("Multi");
             scoreMult.PlayerDouble();
         }
         else if(slowGhost)
         {
             //slow down ghost
+            //put UI feedback in here for slow ghost 
             ghostSpeed.speedDownGhost();
         }
         else if(buildHammer)
         {
             //autobuildtiles
+            //UI feedback in destroy click
             autoDestroyNails.AutoBuild(autoDestructTime);
         }
         else if(extraLife)

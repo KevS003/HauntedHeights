@@ -100,6 +100,7 @@ public class DestroyClick : MonoBehaviour
         {
             autoBuildTime -= Time.deltaTime;
             Debug.Log("AutoBuild timer: "+ autoBuildTime);
+            //spawn logo for autobuild here UI
             Destroy(GameObject.FindWithTag("gameObject"));
             cleanUp = true;
             //Debug.Log("Current nail num: "+ nailOrder);

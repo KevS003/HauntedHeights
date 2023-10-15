@@ -41,7 +41,10 @@ public class CubeController : MonoBehaviour
             transform.Translate(GameManager.moveVector * GameManager.moveSpeed * Time.deltaTime); 
         else if(blocksDestroyed == 4)
         {
-            Destroy(stopBlockRef);
+            //change color and turn off collider box
+            stopBlockRef.GetComponent<BoxCollider>().enabled = false;
+            stopBlockRef.transform.GetChild(0).gameObject.SetActive(true);
+            //Destroy(stopBlockRef);
             stop = false;
             blocksDestroyed =0;
             playerAnims.speed = animSpeedStart;//TEMPORARY SOLUTION
