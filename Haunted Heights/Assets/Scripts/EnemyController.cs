@@ -9,8 +9,11 @@ public class EnemyController : MonoBehaviour
 {
    
     gameManager GameManager;
+    [SerializeField]
+    GameObject powerUpEnemy;
     public ScoreTracking scoreRef;
     private float minSpeedGhost;
+    public float uiTimer= 1f;
 
     
 
@@ -44,6 +47,13 @@ public class EnemyController : MonoBehaviour
         else
             GameManager.enemySpeed = minSpeedGhost;
         Debug.Log(GameManager.enemySpeed.ToString());
+        StartCoroutine(ghostUI(uiTimer));
+    }
+    private IEnumerator ghostUI(float uiTimer)
+    {
+        
+        yield return new WaitForSeconds(uiTimer);
+        powerUpEnemy.SetActive(false);
     }
 
 }

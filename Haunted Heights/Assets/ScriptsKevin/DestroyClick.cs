@@ -46,7 +46,6 @@ public class DestroyClick : MonoBehaviour
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            autohammer.SetActive(false);
 
             if(Physics.Raycast(ray, out hit))
             {
@@ -85,6 +84,7 @@ public class DestroyClick : MonoBehaviour
                                 functCall.ResetSpawnCount();
                                 nailOrder = 1;
                                 objectsDestroyed = 0;
+                                autohammer.SetActive(false);
                             }
                                 
 
@@ -94,7 +94,7 @@ public class DestroyClick : MonoBehaviour
                         else
                         {
                             enemySpeedRef.speedUpGhost();
-                            slowghost.SetActive(false);
+                            //slowghost.SetActive(false);//turns off ghost UI
                         }
                     }
                     

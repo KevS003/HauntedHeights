@@ -37,6 +37,8 @@ public class ScoreTracking : MonoBehaviour //controls UI and score tracking. Cou
         {
             playerDouble = false;
             powerUpTime = powerTimeOG;
+            //UI here
+            doublepoints.SetActive(false);
         }
     }
 
@@ -48,7 +50,7 @@ public class ScoreTracking : MonoBehaviour //controls UI and score tracking. Cou
         {
             Debug.Log("We score two");
             totalScore+=2;
-            doublepoints.SetActive(false);
+            //UI for double points, move to update
         }
     }
     public void PlayerDouble()
