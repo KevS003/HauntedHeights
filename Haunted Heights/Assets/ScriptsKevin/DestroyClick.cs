@@ -31,6 +31,10 @@ public class DestroyClick : MonoBehaviour
     private bool checkForObj = false;
     private bool blockDestroy = false;
 
+    //Temp UI clicks
+    public GameObject slowghost;
+    public GameObject autohammer;
+
     private void Start() 
     {
         functCall = spawner.GetComponent<Spawner>();//gets script from spawner to call function later
@@ -42,6 +46,7 @@ public class DestroyClick : MonoBehaviour
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            autohammer.SetActive(false);
 
             if(Physics.Raycast(ray, out hit))
             {
@@ -89,6 +94,7 @@ public class DestroyClick : MonoBehaviour
                         else
                         {
                             enemySpeedRef.speedUpGhost();
+                            slowghost.SetActive(false);
                         }
                     }
                     

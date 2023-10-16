@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &96689459768574688
 MeshFilter:
@@ -124,6 +124,10 @@ MonoBehaviour:
   extraLifeInv: {fileID: 0}
   multiplier: 0
   slowGhost: 1
-  buildHammer: 0
+  buildHammer: 1
   extraLife: 0
   invincibility: 0
+  autoDestructTime: 10
+  autohammer: {fileID: 0}
+  slowghost: {fileID: 0}
+  doublepoints: {fileID: 0}

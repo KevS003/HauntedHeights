@@ -12,6 +12,8 @@ public class ScoreTracking : MonoBehaviour //controls UI and score tracking. Cou
     private float powerUpTime = 10f;
     private float powerTimeOG;
 
+    public GameObject doublepoints;
+
 
     public int totalScore=0;
     // Start is called before the first frame update
@@ -46,6 +48,7 @@ public class ScoreTracking : MonoBehaviour //controls UI and score tracking. Cou
         {
             Debug.Log("We score two");
             totalScore+=2;
+            doublepoints.SetActive(false);
         }
     }
     public void PlayerDouble()

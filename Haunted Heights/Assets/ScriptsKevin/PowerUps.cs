@@ -28,6 +28,18 @@ public class PowerUps : MonoBehaviour
     [SerializeField]
     private float autoDestructTime = 10f;
 
+    //UI
+    public GameObject autohammer;
+    public GameObject slowghost;
+    public GameObject doublepoints;
+
+
+    public void Start()
+    {
+        autohammer.SetActive(false);
+        slowghost.SetActive(false);
+        doublepoints.SetActive(false);
+    }
     private void Awake() 
     {
         if(multiplier)
@@ -37,28 +49,31 @@ public class PowerUps : MonoBehaviour
         if(buildHammer)
             autoDestroyNails.GetComponent<DestroyClick>();
         if(extraLife)
-            extraLifeInv.GetComponent<CubeController>();    
+            extraLifeInv.GetComponent<CubeController>();
     }
+
     private void OnTriggerEnter(Collider other) //control F UI in said scripts to find where UI input should go
     {
         //point multiplier
         if(multiplier)
         {
             //give extra score per tile
-            //UI feedback in score tracker
+            doublepoints.SetActive(true);
             Debug.Log("Multi");
             scoreMult.PlayerDouble();
         }
         else if(slowGhost)
         {
             //slow down ghost
-            //put UI feedback in here for slow ghost 
+            //put UI feedback in here for slow ghost
+            slowghost.SetActive(true);
             ghostSpeed.speedDownGhost();
         }
         else if(buildHammer)
         {
             //autobuildtiles
             //UI feedback in destroy click
+            autohammer.SetActive(true);
             autoDestroyNails.AutoBuild(autoDestructTime);
         }
         else if(extraLife)
