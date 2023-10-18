@@ -1327,6 +1327,8 @@ MonoBehaviour:
   pointA: {fileID: 1950835452}
   pointB: {fileID: 1298586791}
   rotationSpeed: 0.04
+  timeElapsed: 0
+  dayNightTracker: 0
 --- !u!1001 &174963155
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4136,6 +4138,7 @@ MonoBehaviour:
   - {fileID: 3879998669590717925, guid: 459bac61282f7d54d812341ad3bf67d2, type: 3}
   - {fileID: 3879998669590717925, guid: 459bac61282f7d54d812341ad3bf67d2, type: 3}
   cameraTrack: {fileID: 303648198}
+  dayNightTrack: {fileID: 172169674}
   checkHitOnBox: {fileID: 1910311595}
   scoreRef: {fileID: 1711771470}
   spawnCount: 0

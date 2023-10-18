@@ -24,11 +24,11 @@ public class DestroyClick : MonoBehaviour
     public EnemyController enemySpeedRef;
 
     //powerupstuff
-    private bool autoBuild = false;
+    //private bool autoBuild = false;
     private float autoBuildTime;
     //clean up left overs
     private bool cleanUp=false;
-    private bool checkForObj = false;
+    //private bool checkForObj = false;
     private bool blockDestroy = false;
 
     //Temp UI clicks
@@ -61,21 +61,16 @@ public class DestroyClick : MonoBehaviour
                         //detect if they are destroying in the right order
                         if(nailNumRef.spawnNumOrder == nailOrder || cleanUp == true)//checks the nail picked
                         {
-                            if(cleanUp == true)
-                            {
-                                //track how many destroyed to fix spawn counter
-                                //subtract whatever was destroyed by 4 to find out how many nails were left.
-                                //add it onto the nail order to reorder the nail order properly
-                            }
-                            if(cleanUp == true && nailNumRef.lastOne == true)
-                            {
-                                nailOrder = 4;
-                                blockDestroy = true;
-                            }
+
                             Destroy(bc.gameObject);
                             objectsDestroyed++;
                             if(nailOrder<4 && cleanUp == false)
                                 nailOrder++;
+                            else if(cleanUp == true && nailNumRef.lastOne == true)
+                            {
+                                nailOrder = 4;
+                                blockDestroy = true;
+                            }
                             giveDestroyNumToControl.OnNailDestroyed(blockDestroy);
                             if(blockDestroy == true)//massive reset
                             {
@@ -105,7 +100,7 @@ public class DestroyClick : MonoBehaviour
         else if(autoBuildTime >0.01f)//AutoBuilds on timer, calls necessary functions on other scripts
         {
             autoBuildTime -= Time.deltaTime;
-            Debug.Log("AutoBuild timer: "+ autoBuildTime);
+            //Debug.Log("AutoBuild timer: "+ autoBuildTime);
             //spawn logo for autobuild here UI
             Destroy(GameObject.FindWithTag("gameObject"));
             cleanUp = true;
