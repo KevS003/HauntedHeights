@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -11,6 +12,13 @@ public class NailNumberAssign : MonoBehaviour
     private void Awake() 
     {
         //spawn a spehere cast to detect if something here
+        if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), .5f)==true ||
+            Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), .5f)==true)
+        {
+            Vector3 currentPositions = transform.position;
+            transform.position = new Vector3(currentPositions.x+2, currentPositions.y, currentPositions.z);
+        }
+
           
     }
     public void AssignNumber(int num)
@@ -25,15 +33,14 @@ public class NailNumberAssign : MonoBehaviour
             lastOne = true;
         }
     }
-    /*
+
     private void OnTriggerEnter(Collider other) 
     {
         if(other.gameObject.tag == "gameObject")
         {
-            Vector3 currentPositions = transform.position;
-            transform.position = new Vector3(currentPositions.x+2, currentPositions.y, currentPositions.z);
+
             
         }
         
-    }*/
+    }
 }
