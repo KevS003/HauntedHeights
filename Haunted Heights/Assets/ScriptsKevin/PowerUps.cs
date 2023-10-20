@@ -61,6 +61,7 @@ public class PowerUps : MonoBehaviour
             doublepoints.SetActive(true);
             Debug.Log("Multi");
             scoreMult.PlayerDouble();
+            Destroy(gameObject);
         }
         else if(slowGhost)
         {
@@ -68,6 +69,7 @@ public class PowerUps : MonoBehaviour
             //put UI feedback in here for slow ghost
             slowghost.SetActive(true);
             ghostSpeed.speedDownGhost();
+            Destroy(gameObject);
         }
         else if(buildHammer)
         {
@@ -75,6 +77,7 @@ public class PowerUps : MonoBehaviour
             //UI feedback in destroy click
             autohammer.SetActive(true);
             autoDestroyNails.AutoBuild(autoDestructTime);
+            Destroy(gameObject);
         }
         else if(extraLife)
         {
