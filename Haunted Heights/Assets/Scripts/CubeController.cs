@@ -20,6 +20,7 @@ public class CubeController : MonoBehaviour
     private float animSpeedStart;
     //camera shake
     public CameraShake camShakeRef;
+    private float minSpeedPlayer;
 
  
     void Start()
@@ -27,6 +28,7 @@ public class CubeController : MonoBehaviour
         GameObject gameController = GameObject.FindGameObjectWithTag("GameController");
         GameManager = gameController.GetComponent<gameManager>();
         animSpeedStart = playerAnims.speed;
+        minSpeedPlayer = GameManager.moveSpeed;
 
     }
 
@@ -113,5 +115,20 @@ public class CubeController : MonoBehaviour
     public void AutoDestroyOn()
     {
         blocksDestroyed = 4;//hardcoded
+    }
+
+    public void SpeedUpPlayer()
+    {
+        GameManager.moveSpeed *= GameManager.speedUp;
+        Debug.Log(GameManager.moveSpeed.ToString());
+    }
+
+    public void SpeedDownPlayer()
+    {
+        if(GameManager.moveSpeed > minSpeedPlayer)
+            GameManager.moveSpeed *= GameManager.speedUp;
+        else
+            GameManager.moveSpeed = minSpeedPlayer;
+        Debug.Log(GameManager.moveSpeed.ToString());
     }
 }

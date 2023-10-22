@@ -9,4 +9,5 @@ public class gameManager : MonoBehaviour
     public float enemySpeed = 0.2f;
     public Vector3 moveVector;
     public float speedMultiplier = 1.3f;
+    public float speedUp = 1.3f;
 }
