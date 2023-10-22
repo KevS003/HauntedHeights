@@ -85,7 +85,6 @@ public class PowerUps : MonoBehaviour
         }
         else if(speedUpPlayer)
         {
-            
             playerSpeedUp.SpeedUpPlayer();
         }
         else if(extraLife)
