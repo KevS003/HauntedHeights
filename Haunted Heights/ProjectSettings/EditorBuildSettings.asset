@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/ElonHealthTest.unity
     guid: b6474484fb096f245b4de3dee249e0d1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: deffefadfbe15de44b4781c36ea15a5a
   - enabled: 1

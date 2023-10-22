@@ -16,7 +16,7 @@ public class UI : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
 
     }
