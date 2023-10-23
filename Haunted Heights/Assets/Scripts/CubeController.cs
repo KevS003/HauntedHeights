@@ -128,7 +128,7 @@ public class CubeController : MonoBehaviour
     public void SpeedDownPlayer()
     {
         if(GameManager.moveSpeed > minSpeedPlayer)
-            GameManager.moveSpeed *= GameManager.speedUp;
+            GameManager.moveSpeed /= GameManager.speedUp;
         else
             GameManager.moveSpeed = minSpeedPlayer;
         Debug.Log(GameManager.moveSpeed.ToString());
