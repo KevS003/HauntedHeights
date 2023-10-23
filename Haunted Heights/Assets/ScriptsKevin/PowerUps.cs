@@ -11,6 +11,7 @@ public class PowerUps : MonoBehaviour
     public EnemyController ghostSpeed;
     public DestroyClick autoDestroyNails;
     public CubeController extraLifeInv;
+    public CubeController playerSpeedUp;
 
     //type selector
     [SerializeField]
@@ -20,9 +21,12 @@ public class PowerUps : MonoBehaviour
     [SerializeField]
     private bool buildHammer;
     [SerializeField]
+    private bool speedUpPlayer;
+    [SerializeField]
     private bool extraLife;
     [SerializeField]
     private bool invincibility;
+
 
     //Select time of auto destruct
     [SerializeField]
@@ -39,6 +43,7 @@ public class PowerUps : MonoBehaviour
         autohammer.SetActive(false);
         slowghost.SetActive(false);
         doublepoints.SetActive(false);
+        
     }
     private void Awake() 
     {
@@ -50,6 +55,8 @@ public class PowerUps : MonoBehaviour
             autoDestroyNails.GetComponent<DestroyClick>();
         if(extraLife)
             extraLifeInv.GetComponent<CubeController>();
+        if(speedUpPlayer)
+            playerSpeedUp.GetComponent<CubeController>();
     }
 
     private void OnTriggerEnter(Collider other) //control F UI in said scripts to find where UI input should go
@@ -78,6 +85,10 @@ public class PowerUps : MonoBehaviour
             autohammer.SetActive(true);
             autoDestroyNails.AutoBuild(autoDestructTime);
             Destroy(gameObject);
+        }
+        else if(speedUpPlayer)
+        {
+            playerSpeedUp.SpeedUpPlayer();
         }
         else if(extraLife)
         {

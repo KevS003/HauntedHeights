@@ -16,10 +16,12 @@ public class CubeController : MonoBehaviour
     public bool stop;
     private GameObject stopBlockRef= null;
     public float health = 3;
+    public float speedupDuration = 3;
     //TEMPORARY SOLUTION VAR
     private float animSpeedStart;
     //camera shake
     public CameraShake camShakeRef;
+    private float minSpeedPlayer;
 
  
     void Start()
@@ -27,6 +29,7 @@ public class CubeController : MonoBehaviour
         GameObject gameController = GameObject.FindGameObjectWithTag("GameController");
         GameManager = gameController.GetComponent<gameManager>();
         animSpeedStart = playerAnims.speed;
+        minSpeedPlayer = GameManager.moveSpeed;
 
     }
 
@@ -113,5 +116,27 @@ public class CubeController : MonoBehaviour
     public void AutoDestroyOn()
     {
         blocksDestroyed = 4;//hardcoded
+    }
+
+    public void SpeedUpPlayer()
+    {
+        GameManager.moveSpeed *= GameManager.speedUp;
+        StartCoroutine(SpeedUpCooldown());
+        Debug.Log(GameManager.moveSpeed.ToString());
+    }
+
+    public void SpeedDownPlayer()
+    {
+        if(GameManager.moveSpeed > minSpeedPlayer)
+            GameManager.moveSpeed *= GameManager.speedUp;
+        else
+            GameManager.moveSpeed = minSpeedPlayer;
+        Debug.Log(GameManager.moveSpeed.ToString());
+    }
+
+    IEnumerator SpeedUpCooldown()
+    {
+        yield return new WaitForSeconds(speedupDuration);
+        SpeedDownPlayer();
     }
 }
