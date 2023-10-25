@@ -46,4 +46,14 @@ public class MainMenu : MonoBehaviour
         storeMenu.SetActive(false);
         mainMenu.SetActive(true);
     }
+
+    public void Pause()
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1f;
+    }
 }
