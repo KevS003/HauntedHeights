@@ -7,6 +7,11 @@ using UnityEngine.SceneManagement;
 
 public class CubeController : MonoBehaviour
 {
+    //score reference to send score to leaderboard
+    public ScoreTracking deathScore;
+
+    //UI ref
+    public GameObject autohammer;
 
     gameManager GameManager;
     [SerializeField]
@@ -34,7 +39,7 @@ public class CubeController : MonoBehaviour
     }
 
     
-    void Update()
+    void LateUpdate()
     {
         //if there is no block tagged stop in front keep moving
         //When blocked wait until all 4 things are ded and move forward. 
@@ -71,6 +76,7 @@ public class CubeController : MonoBehaviour
             
         if(health <= 0)
         {
+            deathScore.PlayerEnd();   
             SceneManager.LoadScene("End");
         }
 
@@ -95,10 +101,16 @@ public class CubeController : MonoBehaviour
         if(other.gameObject.tag == "Enemy")
         {
             TakeDamage(1);
+
             Debug.Log("Lost health");
         }
         else if(other.gameObject.tag == "Win")
+        {
+            deathScore.PlayerEnd();
             SceneManager.LoadScene("WinScreen");
+
+        }
+            
 
 }
     public void OnNailDestroyed(bool autoDestroy)
@@ -127,6 +139,7 @@ public class CubeController : MonoBehaviour
 
     public void SpeedDownPlayer()
     {
+        autohammer.SetActive(false);
         if(GameManager.moveSpeed > minSpeedPlayer)
             GameManager.moveSpeed /= GameManager.speedUp;
         else

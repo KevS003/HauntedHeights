@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
-public class Spawner : MonoBehaviour
+public class SpawnerProper : MonoBehaviour
 {
     public GameObject[] selectObject;
     //public DestroyClick getDestroyedNum;// grabs variable from other script to use as a conditional here
@@ -42,11 +43,12 @@ public class Spawner : MonoBehaviour
 
             int randomIndex = Random.Range(0,selectObject.Length);
             Vector3 randomSpawnPosition=new Vector3(Random.Range(cameraTransform.x-5,cameraTransform.x+8),cameraTransform.y,cameraTransform.z+10);//change range to reference the cameras current position.
-            /*for(int i =0; i<=selectObject.Length;i++)
+            for(int i =0; i<=selectObject.Length;i++)
             {
                 spawnLocations[i] = new Vector3(Random.Range(cameraTransform.x-5,cameraTransform.x+8),cameraTransform.y,cameraTransform.z+10);
+
                 //base distance randomize distance
-            }*/
+            }
             GameObject currentNail = Instantiate(selectObject[randomIndex], randomSpawnPosition, Quaternion.identity);
             spawnCount++;
             objectSpawn = objectSpawnDupe;
@@ -61,4 +63,41 @@ public class Spawner : MonoBehaviour
     {
         spawnCount = 0;
     }
+    void DoPositionStuffs()
+        {
+            Vector3[] positions = new Vector3[/*however many nails to spawn/*/ 4];
+            Vector3 startPosition = Vector3.one; // left most position
+            Vector3 previousPosition = startPosition;
+
+            Vector3 minMoveDistance = Vector3.right / 2;
+
+            positions[0] = startPosition;
+            for(int i = 1; i < positions.Length; i++)
+            {
+                Vector3 newPos = previousPosition + minMoveDistance;
+                newPos += Vector3.right * Random.Range(0, 4);
+                positions[i] = newPos;
+                previousPosition = newPos;
+            }
+
+            List<Vector3> positionsList = positions.ToList();
+            for(int i = 0; i < positions.Length; i++)
+            {
+                int index;
+                if(positionsList.Count == 1)
+                    index = 0;
+                else
+                    index = Random.Range(0, positionsList.Count);
+                // Instantiate nail at positionsList[index];
+                //GameObject currentNail = Instantiate(selectObject[randomIndex], randomSpawnPosition, Quaternion.identity);
+
+                positionsList.RemoveAt(index);
+            }
+
+        }
+
+        /*private void IEnumerator()
+        {
+            return 1;
+        }*/
 }

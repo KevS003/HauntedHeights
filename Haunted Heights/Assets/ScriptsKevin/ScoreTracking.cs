@@ -13,6 +13,8 @@ public class ScoreTracking : MonoBehaviour //controls UI and score tracking. Cou
     private float powerTimeOG;
 
     public GameObject doublepoints;
+    //LEADERBOARD update
+    public LeaderBoard updateScore;
 
 
     public int totalScore=0;
@@ -59,4 +61,9 @@ public class ScoreTracking : MonoBehaviour //controls UI and score tracking. Cou
         if(playerDouble==false)
             playerDouble = true;
     }
+    public void PlayerEnd()//sends score to leaderboard
+    {
+        updateScore.LeadUpdate(totalScore);
+    }
+    
 }
