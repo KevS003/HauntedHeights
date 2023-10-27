@@ -83,6 +83,7 @@ public class PowerUps : MonoBehaviour
             //autobuildtiles
             //UI feedback in destroy click
             autoDestroyNails.AutoBuild(autoDestructTime);
+            Destroy(gameObject);
         }
         else if(speedUpPlayer)
         {
