@@ -1836,6 +1836,7 @@ MonoBehaviour:
   rotationSpeed: 0.04
   timeElapsed: 0
   dayNightTracker: 0
+  scoreRef: {fileID: 1711771470}
 --- !u!4 &185057208 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2466183241729148588, guid: 4b023d6930a443a4cbab4e16b72b36e0,
@@ -5776,7 +5777,7 @@ PrefabInstance:
     - target: {fileID: 2652256330318546312, guid: ac292a0999907d84d825f0b91367eb51,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.34
+      value: 25.37
       objectReference: {fileID: 0}
     - target: {fileID: 2652256330318546312, guid: ac292a0999907d84d825f0b91367eb51,
         type: 3}
