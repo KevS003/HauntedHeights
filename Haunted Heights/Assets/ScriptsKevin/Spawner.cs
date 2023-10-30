@@ -34,14 +34,14 @@ public class Spawner : MonoBehaviour
         
         cameraTransform =cameraTrack.transform.position;
         if(objectSpawn > 0)
-            objectSpawn-= Time.deltaTime + (.25f * dayNightTrack.dayNightTracker);
+            objectSpawn-= Time.deltaTime + (.005f * scoreRef.totalScore);//Change back to score
         
         if(objectSpawn<0 && spawnCount<4 && checkHitOnBox.stop == true)
         {
             //declare list or array of nail spawn(Vector 3 of locations)(start at left) for loop for spawn
 
             int randomIndex = Random.Range(0,selectObject.Length);
-            Vector3 randomSpawnPosition=new Vector3(Random.Range(cameraTransform.x-5,cameraTransform.x+8),cameraTransform.y,cameraTransform.z+10);//change range to reference the cameras current position.
+            Vector3 randomSpawnPosition=new Vector3(Random.Range(cameraTransform.x-5,cameraTransform.x+8),cameraTransform.y,cameraTransform.z+5);//change range to reference the cameras current position.
             /*for(int i =0; i<=selectObject.Length;i++)
             {
                 spawnLocations[i] = new Vector3(Random.Range(cameraTransform.x-5,cameraTransform.x+8),cameraTransform.y,cameraTransform.z+10);

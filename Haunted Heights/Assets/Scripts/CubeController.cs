@@ -107,7 +107,8 @@ public class CubeController : MonoBehaviour
         else if(other.gameObject.tag == "Win")
         {
             deathScore.PlayerEnd();
-            SceneManager.LoadScene("WinScreen");
+            //if statement that swaps between two or three scenes
+            SceneManager.LoadScene(0);//change to next roof or restart scene here. 
 
         }
             
