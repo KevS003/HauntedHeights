@@ -47,6 +47,7 @@ public class PowerUps : MonoBehaviour
     }
     private void Awake() 
     {
+        
         if(multiplier)
             scoreMult.GetComponent<ScoreTracking>();
         if(slowGhost)
