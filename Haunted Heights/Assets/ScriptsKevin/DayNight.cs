@@ -17,7 +17,7 @@ public class DayNight : MonoBehaviour
 
     void Update()
     {
-        if(scoreRef.totalScore>=3)//I know it looks ugly lol 
+        if(ScoreTracking.totalScore>=3)//I know it looks ugly lol 
         {
         timeElapsed += Time.deltaTime * rotationSpeed;
         

@@ -34,7 +34,7 @@ public class Spawner : MonoBehaviour
         
         cameraTransform =cameraTrack.transform.position;
         if(objectSpawn > 0)
-            objectSpawn-= Time.deltaTime + (.005f * scoreRef.totalScore);//Change back to score
+            objectSpawn-= Time.deltaTime + (.005f * ScoreTracking.totalScore);//Change back to score
         
         if(objectSpawn<0 && spawnCount<4 && checkHitOnBox.stop == true)
         {
