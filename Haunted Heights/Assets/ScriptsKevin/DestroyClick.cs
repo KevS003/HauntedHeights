@@ -15,6 +15,7 @@ public class DestroyClick : MonoBehaviour
     private Spawner functCall;
     private ScoreTracking scoreFunctCall;
     public CubeController giveDestroyNumToControl;
+    public AudioPlayer audioStuff;
     //nail stuff below
     private GameObject nailRef;
     private NailNumberAssign nailNumRef;
@@ -38,13 +39,13 @@ public class DestroyClick : MonoBehaviour
     //AUDIO STUFF
     public AudioClip correctNail;
     public AudioClip notRight;
-    private AudioSource soundSource;
+    //private AudioSource soundSource;
 
     private void Start() 
     {
         functCall = spawner.GetComponent<Spawner>();//gets script from spawner to call function later
         scoreFunctCall = scoreTracker.GetComponent<ScoreTracking>();
-        soundSource = gameObject.GetComponent<AudioSource>();
+        //soundSource = gameObject.GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -67,7 +68,7 @@ public class DestroyClick : MonoBehaviour
                         //detect if they are destroying in the right order
                         if(nailNumRef.spawnNumOrder == nailOrder)//checks the nail picked//play sound here
                         {
-                            PlaySound(correctNail);
+                            audioStuff.PlaySound(correctNail);
                             Destroy(bc.gameObject);
                             objectsDestroyed++;
                             if(nailOrder<4 )
@@ -77,7 +78,7 @@ public class DestroyClick : MonoBehaviour
                         //else//speed up ghost
                         else
                         {
-                            PlaySound(notRight);
+                            audioStuff.PlaySound(notRight);
                             enemySpeedRef.speedUpGhost();
                             //slowghost.SetActive(false);//turns off ghost UI
                         }
@@ -107,11 +108,6 @@ public class DestroyClick : MonoBehaviour
     public void AutoBuild(float time)
     {
         autoBuildTime = time;
-    }
-
-    private void PlaySound(AudioClip sound)
-    {
-        soundSource.PlayOneShot(sound);
     }
     
 }

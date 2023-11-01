@@ -12,6 +12,7 @@ public class PowerUps : MonoBehaviour
     public DestroyClick autoDestroyNails;
     public CubeController extraLifeInv;
     public CubeController playerSpeedUp;
+    public AudioPlayer audioStuff;
 
     //type selector
     [SerializeField]
@@ -37,9 +38,16 @@ public class PowerUps : MonoBehaviour
     public GameObject slowghost;
     public GameObject doublepoints;
 
+    //AudioClips
+    private AudioSource source;
+    public AudioClip ghostSlowAudio;
+    public AudioClip speedPlayerAudio;
+    public AudioClip doublePointsAudio; 
+
 
     public void Start()
     {
+        source = GetComponent<AudioSource>();
         autohammer.SetActive(false);
         slowghost.SetActive(false);
         doublepoints.SetActive(false);
@@ -65,7 +73,10 @@ public class PowerUps : MonoBehaviour
         //point multiplier
         if(multiplier)
         {
+
             //give extra score per tile
+            if(doublepoints !=null)
+                audioStuff.PlaySound(doublePointsAudio);
             doublepoints.SetActive(true);
             Debug.Log("Multi");
             scoreMult.PlayerDouble();
@@ -75,6 +86,8 @@ public class PowerUps : MonoBehaviour
         {
             //slow down ghost
             //put UI feedback in here for slow ghost
+            if(ghostSlowAudio !=null)
+                audioStuff.PlaySound(ghostSlowAudio);
             slowghost.SetActive(true);
             ghostSpeed.speedDownGhost();
             Destroy(gameObject);
@@ -88,6 +101,8 @@ public class PowerUps : MonoBehaviour
         }
         else if(speedUpPlayer)
         {
+            if(speedPlayerAudio !=null)
+                audioStuff.PlaySound(speedPlayerAudio);
             autohammer.SetActive(true);//NOW FOR SPEEDUP
             playerSpeedUp.SpeedUpPlayer();
             Destroy(gameObject);
@@ -106,5 +121,8 @@ public class PowerUps : MonoBehaviour
         //invincibility 
     }
 
-    //void Play
+    private void PlaySound(AudioClip sound)
+    {
+        source.PlayOneShot(sound);
+    }
 }
