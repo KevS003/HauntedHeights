@@ -17,10 +17,16 @@ public class ScoreTracking : MonoBehaviour //controls UI and score tracking. Cou
     public LeaderBoard updateScore;
 
 
-    public int totalScore=0;
+    static public int totalScore=0;
+    private static ScoreTracking _instance;
+    public static ScoreTracking Instance{get {return _instance;}}
     // Start is called before the first frame update
     void Start()
     {
+        if(_instance == null)
+        {
+            _instance = this;
+        }
         scoreCountText = scoreCount.GetComponent<TextMeshProUGUI>();
         powerTimeOG = powerUpTime;
     }
@@ -54,6 +60,7 @@ public class ScoreTracking : MonoBehaviour //controls UI and score tracking. Cou
             totalScore+=2;
             //UI for double points, move to update
         }
+
     }
     public void PlayerDouble()
     {
@@ -64,6 +71,7 @@ public class ScoreTracking : MonoBehaviour //controls UI and score tracking. Cou
     public void PlayerEnd()//sends score to leaderboard
     {
         updateScore.LeadUpdate(totalScore);
+        ScoreTracking.totalScore =0;
     }
     
 }

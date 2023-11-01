@@ -18,8 +18,9 @@ public class NailNumberAssign : MonoBehaviour
             Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), 2f)==true)
         {*/
             Debug.Log("MOVEEEEEEEEEEEEEEE");
+            //Vector3 collider.bounds
             //Vector3 currentPositions = transform.position;
-            transform.position = new Vector3(Random.Range(transform.position.x-5, transform.position.x+8),Random.Range(transform.position.y-2,transform.position.y+3 ),transform.position.z-2);
+            //transform.position = new Vector3(Random.Range(transform.position.x-5, transform.position.x+5),Random.Range(transform.position.y-2,transform.position.y+3 ),transform.position.z-2);
         //}
 
           

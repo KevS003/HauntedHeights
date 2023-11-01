@@ -11,16 +11,28 @@ public class MainMenu : MonoBehaviour
     public GameObject gameUI;
     public GameObject optionsMenu;
     public GameObject storeMenu;
+    static public bool gameStarted=false;
     private void Start()
     {
-        Time.timeScale = 0f;
-        gameUI.SetActive(false);
+        //if statement checking if game was already started
+        if(gameStarted == false)
+        {
+            Time.timeScale = 0f;
+            gameUI.SetActive(false);
+        }
+        else
+        {
+            PlayGame();
+        }
+
+        //go to playgame function immediately 
     }
     public void PlayGame()
     {
         Time.timeScale = 1f;
         mainMenu.SetActive(false);
         gameUI.SetActive(true);
+        gameStarted = true;
         
     }
 
