@@ -18,6 +18,10 @@ public class RandomizeProps : MonoBehaviour
             {
                 GameObject startRoof = Instantiate(roofType[1], propLocations[i], Quaternion.Euler(0,90,0));
             }
+            else if(i==10)
+            {
+                GameObject startRoof = Instantiate(roofType[1], propLocations[i], Quaternion.Euler(0,90,0));
+            }
             else
             {
                 GameObject currentRoof = Instantiate(roofType[Random.Range(0,3)], propLocations[i], Quaternion.Euler(0,90,0));
