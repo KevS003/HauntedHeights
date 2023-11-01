@@ -27,7 +27,7 @@ public class DestroyClick : MonoBehaviour
     //private bool autoBuild = false;
     private float autoBuildTime;
     //clean up left overs
-    private bool cleanUp=false;
+    //private bool cleanUp=false;
     //private bool checkForObj = false;
     private bool blockDestroy = false;
 
@@ -35,10 +35,16 @@ public class DestroyClick : MonoBehaviour
     public GameObject slowghost;
     public GameObject autohammer;
 
+    //AUDIO STUFF
+    public AudioClip correctNail;
+    public AudioClip notRight;
+    private AudioSource soundSource;
+
     private void Start() 
     {
         functCall = spawner.GetComponent<Spawner>();//gets script from spawner to call function later
         scoreFunctCall = scoreTracker.GetComponent<ScoreTracking>();
+        soundSource = gameObject.GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -59,35 +65,19 @@ public class DestroyClick : MonoBehaviour
                     if(bc.gameObject.tag == "gameObject")
                     {
                         //detect if they are destroying in the right order
-                        if(nailNumRef.spawnNumOrder == nailOrder || cleanUp == true)//checks the nail picked
+                        if(nailNumRef.spawnNumOrder == nailOrder)//checks the nail picked//play sound here
                         {
-
+                            PlaySound(correctNail);
                             Destroy(bc.gameObject);
                             objectsDestroyed++;
-                            if(nailOrder<4 && cleanUp == false)
+                            if(nailOrder<4 )
                                 nailOrder++;
-                            else if(cleanUp == true && nailNumRef.lastOne == true)
-                            {
-                                nailOrder = 4;
-                                blockDestroy = true;
-                            }
-                            giveDestroyNumToControl.OnNailDestroyed(blockDestroy);
-                            if(blockDestroy == true)//massive reset
-                            {
-                                blockDestroy = false;
-                                cleanUp = false;
-                                functCall.ResetSpawnCount();
-                                nailOrder = 1;
-                                objectsDestroyed = 0;
-                                autohammer.SetActive(false);
-                            }
-                                
-
-                                
+                            giveDestroyNumToControl.OnNailDestroyed(blockDestroy);                               
                         }
                         //else//speed up ghost
                         else
                         {
+                            PlaySound(notRight);
                             enemySpeedRef.speedUpGhost();
                             //slowghost.SetActive(false);//turns off ghost UI
                         }
@@ -96,24 +86,6 @@ public class DestroyClick : MonoBehaviour
                 }
             }
             
-        }
-        else if(autoBuildTime >0.01f)//AutoBuilds on timer, calls necessary functions on other scripts
-        {
-            autoBuildTime -= Time.deltaTime;
-            //Debug.Log("AutoBuild timer: "+ autoBuildTime);
-            //spawn logo for autobuild here UI
-            Destroy(GameObject.FindWithTag("gameObject"));
-            cleanUp = true;
-            //Debug.Log("Current nail num: "+ nailOrder);
-            if(functCall.spawnCount == 4)
-            {
-                giveDestroyNumToControl.AutoDestroyOn();
-                scoreFunctCall.PlayerScored();
-                functCall.ResetSpawnCount();
-            }
-                
-
-
         }
             
 
@@ -135,6 +107,11 @@ public class DestroyClick : MonoBehaviour
     public void AutoBuild(float time)
     {
         autoBuildTime = time;
+    }
+
+    private void PlaySound(AudioClip sound)
+    {
+        soundSource.PlayOneShot(sound);
     }
     
 }

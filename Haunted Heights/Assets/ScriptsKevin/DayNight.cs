@@ -12,8 +12,13 @@ public class DayNight : MonoBehaviour
     public float dayNightTracker;
     private bool hitZero = true;
 
+    //score ref
+    public ScoreTracking scoreRef;
+
     void Update()
     {
+        if(scoreRef.totalScore>=3)//I know it looks ugly lol 
+        {
         timeElapsed += Time.deltaTime * rotationSpeed;
         
         if(dayNightTracker < 1 && hitZero == true)
@@ -42,5 +47,7 @@ public class DayNight : MonoBehaviour
         }
 
          transform.rotation = Quaternion.Lerp(pointA.rotation, pointB.rotation, timeElapsed);
+        }
+
     }
 }
