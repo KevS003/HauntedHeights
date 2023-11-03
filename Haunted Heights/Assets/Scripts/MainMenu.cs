@@ -12,14 +12,14 @@ public class MainMenu : MonoBehaviour
     public GameObject optionsMenu;
     public GameObject storeMenu;
     public GameObject creditsMenu;
-    //public GameObject pauseMenu;
     static public bool gameStarted=false;
     private void Start()
     {
+        Pause();
         //if statement checking if game was already started
         if(gameStarted == false)
         {
-            Time.timeScale = 0f;
+            //Time.timeScale = 0f;
             gameUI.SetActive(false);
         }
         else
@@ -33,7 +33,6 @@ public class MainMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         mainMenu.SetActive(false);
-        gameUI.SetActive(true);
         gameStarted = true;
         
     }
@@ -60,25 +59,28 @@ public class MainMenu : MonoBehaviour
         storeMenu.SetActive(false);
         creditsMenu.SetActive(false);
         mainMenu.SetActive(true);
-        //pauseMenu.SetActive(false);
     }
 
     public void Pause()
     {
         Time.timeScale = 0f;
-        //gameUI.SetActive(false);
-        //pauseMenu.SetActive(true);
     }
 
     public void Resume()
     {
         Time.timeScale = 1f;
-        //pauseMenu.SetActive(false);
     }
 
     public void Credits()
     {
         creditsMenu.SetActive(true);
         mainMenu.SetActive(false);
+    }
+
+    public void ReturnToMain()
+    {
+        SceneManager.LoadScene(0);
+        gameStarted = false;
+
     }
 }
