@@ -11,6 +11,8 @@ public class MainMenu : MonoBehaviour
     public GameObject gameUI;
     public GameObject optionsMenu;
     public GameObject storeMenu;
+    public GameObject creditsMenu;
+    //public GameObject pauseMenu;
     static public bool gameStarted=false;
     private void Start()
     {
@@ -56,16 +58,27 @@ public class MainMenu : MonoBehaviour
     {
         optionsMenu.SetActive(false);
         storeMenu.SetActive(false);
+        creditsMenu.SetActive(false);
         mainMenu.SetActive(true);
+        //pauseMenu.SetActive(false);
     }
 
     public void Pause()
     {
         Time.timeScale = 0f;
+        //gameUI.SetActive(false);
+        //pauseMenu.SetActive(true);
     }
 
     public void Resume()
     {
         Time.timeScale = 1f;
+        //pauseMenu.SetActive(false);
+    }
+
+    public void Credits()
+    {
+        creditsMenu.SetActive(true);
+        mainMenu.SetActive(false);
     }
 }
