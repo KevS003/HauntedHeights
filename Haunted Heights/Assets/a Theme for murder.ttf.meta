@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: ddc455a7e7f39e74486428f9cfbb13f1
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - a Theme for murder
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 6699520a92b7b494a9c7f0e4829f9e76, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
