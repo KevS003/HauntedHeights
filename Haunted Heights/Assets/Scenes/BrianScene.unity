@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 172169672}
-  m_IndirectSpecularColor: {r: 0.00059351214, g: 0.00029113732, b: 0.000034730198,
+  m_IndirectSpecularColor: {r: 0.00059351354, g: 0.00029113799, b: 0.00003473043,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -1601,6 +1601,7 @@ GameObject:
   - component: {fileID: 172169673}
   - component: {fileID: 172169672}
   - component: {fileID: 172169674}
+  - component: {fileID: 172169675}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -1703,6 +1704,29 @@ MonoBehaviour:
   timeElapsed: 0
   dayNightTracker: 0
   scoreRef: {fileID: 1711771470}
+--- !u!114 &172169675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172169671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &174376818
 GameObject:
   m_ObjectHideFlags: 0
@@ -13110,7 +13134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1412971930}
   player: {fileID: 1910311594}
-  distanceBar: {fileID: 0}
+  distanceBar: {fileID: 518575836}
   distance: 0
 --- !u!135 &1412971933
 SphereCollider:
@@ -14804,6 +14828,7 @@ MonoBehaviour:
   gameUI: {fileID: 2065701054}
   optionsMenu: {fileID: 761938446}
   storeMenu: {fileID: 120545669}
+  creditsMenu: {fileID: 0}
 --- !u!1001 &1556491739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16581,6 +16606,7 @@ MonoBehaviour:
   gameUI: {fileID: 2065701054}
   optionsMenu: {fileID: 761938446}
   storeMenu: {fileID: 120545669}
+  creditsMenu: {fileID: 0}
 --- !u!4 &1709191269 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2576082255673655398, guid: 6ac7ebf29a373a94baeb2fcd882c3124,
@@ -19190,6 +19216,7 @@ MonoBehaviour:
   spawner: {fileID: 621044498}
   scoreTracker: {fileID: 1711771469}
   giveDestroyNumToControl: {fileID: 1910311595}
+  audioStuff: {fileID: 0}
   enemySpeedRef: {fileID: 1412971931}
   slowghost: {fileID: 1478207925}
   autohammer: {fileID: 70445186}
@@ -20273,6 +20300,7 @@ MonoBehaviour:
   gameUI: {fileID: 2065701054}
   optionsMenu: {fileID: 761938446}
   storeMenu: {fileID: 120545669}
+  creditsMenu: {fileID: 0}
 --- !u!4 &2066951639 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9262667d854f59349894fd3a2c64e65b,
@@ -20703,6 +20731,7 @@ MonoBehaviour:
   gameUI: {fileID: 2065701054}
   optionsMenu: {fileID: 761938446}
   storeMenu: {fileID: 120545669}
+  creditsMenu: {fileID: 0}
 --- !u!1001 &2113758619
 PrefabInstance:
   m_ObjectHideFlags: 0

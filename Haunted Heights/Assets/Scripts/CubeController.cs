@@ -10,6 +10,15 @@ public class CubeController : MonoBehaviour
     //score reference to send score to leaderboard
     public ScoreTracking deathScore;
 
+    //player skins
+    [SerializeField]
+    Material[] playerSkins;
+    [SerializeField]
+    GameObject playerModel;
+    SkinnedMeshRenderer playerRend;
+    static int currentSkin=0;
+
+
     //UI ref
     public GameObject autohammer;
 
@@ -31,6 +40,8 @@ public class CubeController : MonoBehaviour
  
     void Start()
     {
+        playerRend = playerModel.GetComponent<SkinnedMeshRenderer>();
+        playerRend.material = playerSkins[currentSkin];
         GameObject gameController = GameObject.FindGameObjectWithTag("GameController");
         GameManager = gameController.GetComponent<gameManager>();
         animSpeedStart = playerAnims.speed;
@@ -152,5 +163,20 @@ public class CubeController : MonoBehaviour
     {
         yield return new WaitForSeconds(speedupDuration);
         SpeedDownPlayer();
+    }
+    public void skinOne()
+    {
+        playerRend.material = playerSkins[0];
+        currentSkin = 0;
+    }
+    public void skinTwo()
+    {
+        playerRend.material = playerSkins[1];
+        currentSkin = 1;
+    }
+    public void skinThree()
+    {
+        playerRend.material = playerSkins[2];
+        currentSkin = 2;
     }
 }
