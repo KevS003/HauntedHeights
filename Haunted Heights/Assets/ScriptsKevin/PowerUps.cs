@@ -115,8 +115,6 @@ public class PowerUps : MonoBehaviour
         {
             //no die 
         }
-        //slow ghost
-        //Auto Build hammer
         //Extra life
         //invincibility 
     }

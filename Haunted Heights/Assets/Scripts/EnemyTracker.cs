@@ -2,21 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class EnemyTracker : MonoBehaviour
 {
     public GameObject enemy;
     public GameObject player;
-    public GameObject enemyTracker;
-    private TextMeshProUGUI enemyTrackerText;
+    //public GameObject enemyTracker;
+    //private TextMeshProUGUI enemyTrackerText;
 
+    public Slider distanceBar;
+    //public float maxDistance = 200.0f;
     
 
-    private float distance;
+    public float distance;
 
     void Start()
     { 
-        enemyTrackerText = enemyTracker.GetComponent<TextMeshProUGUI>();
+        //enemyTrackerText = enemyTracker.GetComponent<TextMeshProUGUI>();
     }
     
     void FixedUpdate()
@@ -45,7 +48,13 @@ public class EnemyTracker : MonoBehaviour
 
     void Update()
     {
-        enemyTrackerText.text = "Distance from ghost: " + distance.ToString("0");
+        //enemyTrackerText.text = "Distance from ghost: " + distance.ToString("0");
+        DistanceBarUpdate();
+    }
+
+    public void DistanceBarUpdate()
+    {
+        distanceBar.value = 200 - (distance);
     }
 
 }
