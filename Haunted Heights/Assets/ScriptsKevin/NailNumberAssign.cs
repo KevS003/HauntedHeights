@@ -18,6 +18,7 @@ public class NailNumberAssign : MonoBehaviour
             Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), 2f)==true)
         {*/
             Debug.Log("MOVEEEEEEEEEEEEEEE");
+            StartCoroutine(CheckIfCollide());
             //Vector3 collider.bounds
             //Vector3 currentPositions = transform.position;
             //transform.position = new Vector3(Random.Range(transform.position.x-5, transform.position.x+5),Random.Range(transform.position.y-2,transform.position.y+3 ),transform.position.z-2);
@@ -32,13 +33,14 @@ public class NailNumberAssign : MonoBehaviour
     }
     private void FixedUpdate() 
     {
+        StartCoroutine(CheckIfCollide());
         if(spawnNumOrder == 4)
         {
             lastOne = true;
         }
     }
 
-    private void OnTriggerStay(Collider other) 
+    private void OnTriggerEnter(Collider other) 
     {
         if(other.gameObject.tag == "gameObject")
         {
@@ -47,10 +49,21 @@ public class NailNumberAssign : MonoBehaviour
             NailNumberAssign nailIndRef = other.GetComponent<NailNumberAssign>();
             if(nailIndRef.spawnNumOrder > spawnNumOrder)
             {
-                transform.position= new Vector3(transform.position.x,transform.position.y+10,transform.position.z);
+                transform.position= new Vector3(transform.position.x+5,transform.position.y,transform.position.z);
             }
             
         }
         
+    }
+    IEnumerator CheckIfCollide()
+    {
+        Physics.SyncTransforms();
+        yield return new WaitForFixedUpdate();
+        Collider[] hitColliders = Physics.OverlapBox(gameObject.transform.position, gameObject.GetComponent<CapsuleCollider>().bounds.extents, Quaternion.identity, LayerMask.GetMask("Default"));
+        if(hitColliders.Length >1)
+        {
+            transform.position = new Vector3(Random.Range(transform.position.x-1,transform.position.x+1),transform.position.y,transform.position.z);
+            //Random.Range(transform.position.x-1,transform.position.x+5),
+        }
     }
 }

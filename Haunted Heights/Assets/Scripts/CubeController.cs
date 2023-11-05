@@ -18,6 +18,10 @@ public class CubeController : MonoBehaviour
     SkinnedMeshRenderer playerRend;
     static int currentSkin=0;
 
+    //check if at end
+    bool endMaybe;
+    string sceneName;
+
 
     //UI ref
     public GameObject autohammer;
@@ -46,6 +50,16 @@ public class CubeController : MonoBehaviour
         GameManager = gameController.GetComponent<gameManager>();
         animSpeedStart = playerAnims.speed;
         minSpeedPlayer = GameManager.moveSpeed;
+        //Scene currentScene = SceneManager.GetActiveScene();
+        //sceneName = currentScene.name;
+        /* if(sceneName == "End")
+        {
+            endMaybe = true;
+        }
+        else
+        {
+            endMaybe = false;
+        } */
 
     }
 
@@ -108,7 +122,7 @@ public class CubeController : MonoBehaviour
     }
 
     public void OnTriggerEnter(Collider other)
-{
+    {
         if(other.gameObject.tag == "Enemy")
         {
             TakeDamage(1);
