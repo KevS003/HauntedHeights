@@ -41,7 +41,7 @@ public class Spawner : MonoBehaviour
             //declare list or array of nail spawn(Vector 3 of locations)(start at left) for loop for spawn
 
             int randomIndex = Random.Range(0,selectObject.Length);
-            Vector3 randomSpawnPosition=new Vector3(Random.Range(cameraTransform.x-5,cameraTransform.x+8),cameraTransform.y,cameraTransform.z+5);//change range to reference the cameras current position.
+            Vector3 randomSpawnPosition=new Vector3(Random.Range(cameraTransform.x-5,cameraTransform.x+5),cameraTransform.y,cameraTransform.z+5);//change range to reference the cameras current position.
             /*for(int i =0; i<=selectObject.Length;i++)
             {
                 spawnLocations[i] = new Vector3(Random.Range(cameraTransform.x-5,cameraTransform.x+8),cameraTransform.y,cameraTransform.z+10);
