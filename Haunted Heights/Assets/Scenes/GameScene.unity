@@ -4587,7 +4587,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &410363766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8854,6 +8854,7 @@ MonoBehaviour:
   optionsMenu: {fileID: 761938446}
   storeMenu: {fileID: 120545669}
   creditsMenu: {fileID: 1699456374}
+  pauseMenu: {fileID: 410363765}
 --- !u!1001 &740450667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15367,6 +15368,7 @@ MonoBehaviour:
   optionsMenu: {fileID: 761938446}
   storeMenu: {fileID: 120545669}
   creditsMenu: {fileID: 1699456374}
+  pauseMenu: {fileID: 410363765}
 --- !u!224 &1217056129
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21254,6 +21256,7 @@ MonoBehaviour:
   optionsMenu: {fileID: 761938446}
   storeMenu: {fileID: 120545669}
   creditsMenu: {fileID: 1699456374}
+  pauseMenu: {fileID: 410363765}
 --- !u!1001 &1553058383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24451,6 +24454,7 @@ MonoBehaviour:
   optionsMenu: {fileID: 761938446}
   storeMenu: {fileID: 120545669}
   creditsMenu: {fileID: 1699456374}
+  pauseMenu: {fileID: 410363765}
 --- !u!4 &1709191269 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2576082255673655398, guid: 6ac7ebf29a373a94baeb2fcd882c3124,
@@ -28503,6 +28507,7 @@ MonoBehaviour:
   optionsMenu: {fileID: 761938446}
   storeMenu: {fileID: 120545669}
   creditsMenu: {fileID: 1699456374}
+  pauseMenu: {fileID: 410363765}
 --- !u!4 &2066951639 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9262667d854f59349894fd3a2c64e65b,
@@ -29228,6 +29233,7 @@ MonoBehaviour:
   optionsMenu: {fileID: 761938446}
   storeMenu: {fileID: 120545669}
   creditsMenu: {fileID: 1699456374}
+  pauseMenu: {fileID: 410363765}
 --- !u!1 &2112961331
 GameObject:
   m_ObjectHideFlags: 0

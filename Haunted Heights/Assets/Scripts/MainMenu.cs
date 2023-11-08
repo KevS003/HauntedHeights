@@ -12,19 +12,23 @@ public class MainMenu : MonoBehaviour
     public GameObject optionsMenu;
     public GameObject storeMenu;
     public GameObject creditsMenu;
+    public GameObject pauseMenu;
     static public bool gameStarted=false;
     private void Start()
     {
-        Pause();
+       
         //if statement checking if game was already started
         if(gameStarted == false)
         {
             //Time.timeScale = 0f;
             gameUI.SetActive(false);
+            pauseMenu.SetActive(false);
+            Pause();
         }
         else
         {
             PlayGame();
+            pauseMenu.SetActive(false);
         }
 
         //go to playgame function immediately 
