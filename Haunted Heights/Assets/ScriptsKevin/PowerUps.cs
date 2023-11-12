@@ -13,6 +13,7 @@ public class PowerUps : MonoBehaviour
     public CubeController extraLifeInv;
     public CubeController playerSpeedUp;
     public AudioPlayer audioStuff;
+    public CurrencyScript coinStuff;
 
     //type selector
     [SerializeField]
@@ -27,6 +28,8 @@ public class PowerUps : MonoBehaviour
     private bool extraLife;
     [SerializeField]
     private bool invincibility;
+    [SerializeField]
+    private bool coin;
 
 
     //Select time of auto destruct
@@ -42,7 +45,8 @@ public class PowerUps : MonoBehaviour
     private AudioSource source;
     public AudioClip ghostSlowAudio;
     public AudioClip speedPlayerAudio;
-    public AudioClip doublePointsAudio; 
+    public AudioClip doublePointsAudio;
+    public AudioClip coinAudio;  
 
 
     public void Start()
@@ -53,7 +57,7 @@ public class PowerUps : MonoBehaviour
         doublepoints.SetActive(false);
         
     }
-    private void Awake() 
+    /* private void Awake() 
     {
         
         if(multiplier)
@@ -66,7 +70,9 @@ public class PowerUps : MonoBehaviour
             extraLifeInv.GetComponent<CubeController>();
         if(speedUpPlayer)
             playerSpeedUp.GetComponent<CubeController>();
-    }
+        if(coin)
+            coinStuff.GetComponent<CurrencyScript>();
+    } */
 
     private void OnTriggerEnter(Collider other) //control F UI in said scripts to find where UI input should go
     {
@@ -105,6 +111,12 @@ public class PowerUps : MonoBehaviour
                 audioStuff.PlaySound(speedPlayerAudio);
             autohammer.SetActive(true);//NOW FOR SPEEDUP
             playerSpeedUp.SpeedUpPlayer();
+            Destroy(gameObject);
+        }
+        else if(coin)
+        {
+            audioStuff.PlaySound(coinAudio);
+            coinStuff.GotCoin();
             Destroy(gameObject);
         }
         else if(extraLife)

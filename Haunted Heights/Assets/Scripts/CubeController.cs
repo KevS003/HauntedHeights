@@ -40,8 +40,8 @@ public class CubeController : MonoBehaviour
     //camera shake
     public CameraShake camShakeRef;
     private float minSpeedPlayer;
+    public CurrencyScript coinRef;
 
- 
     void Start()
     {
         playerRend = playerModel.GetComponent<SkinnedMeshRenderer>();
@@ -185,12 +185,23 @@ public class CubeController : MonoBehaviour
     }
     public void skinTwo()
     {
-        playerRend.material = playerSkins[1];
-        currentSkin = 1;
+        Debug.Log("No money");
+        if(coinRef.SkinPurchase(2))
+        {
+            Debug.Log("Purchase made");
+            playerRend.material = playerSkins[1];
+            currentSkin = 1;
+        }
+        
     }
     public void skinThree()
     {
-        playerRend.material = playerSkins[2];
-        currentSkin = 2;
+        if(coinRef.SkinPurchase(3))
+        {
+            Debug.Log("Purchase made");
+            playerRend.material = playerSkins[2];
+            currentSkin = 2;
+        }
+        
     }
 }

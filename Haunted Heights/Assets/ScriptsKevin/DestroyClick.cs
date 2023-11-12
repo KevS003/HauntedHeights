@@ -65,10 +65,12 @@ public class DestroyClick : MonoBehaviour
                 {
                     if(bc.gameObject.tag == "gameObject")
                     {
+                        NailNumberAssign tempRef=bc.gameObject.GetComponent<NailNumberAssign>();
                         //detect if they are destroying in the right order
                         if(nailNumRef.spawnNumOrder == nailOrder)//checks the nail picked//play sound here
                         {
                             audioStuff.PlaySound(correctNail);
+                            tempRef.Hit();
                             Destroy(bc.gameObject);
                             objectsDestroyed++;
                             if(nailOrder<4 )
@@ -79,6 +81,7 @@ public class DestroyClick : MonoBehaviour
                         else
                         {
                             audioStuff.PlaySound(notRight);
+                            tempRef.Miss();
                             enemySpeedRef.speedUpGhost();
                             //slowghost.SetActive(false);//turns off ghost UI
                         }
