@@ -54,7 +54,7 @@ public class ScoreTracking : MonoBehaviour //controls UI and score tracking. Cou
             doublepoints.SetActive(false);
         }
     }
-
+    #region Regular game mode scoring 
     public void PlayerScored()
     {
         if(playerDouble == false)
@@ -78,5 +78,31 @@ public class ScoreTracking : MonoBehaviour //controls UI and score tracking. Cou
         updateScore.LeadUpdate(totalScore);
         ScoreTracking.totalScore =0;
     }
+    #endregion
     
+    #region Revenge game mode scoring 
+    public void PlayerScoredRevenge()
+    {
+        if(playerDouble == false)
+            totalScore++;
+        else if(playerDouble == true)
+        {
+            Debug.Log("We score two");
+            totalScore+=2;
+            //UI for double points, move to update
+        }
+
+    }
+    public void PlayerDoubleRevenge()
+    {
+        Debug.Log("I here");
+        if(playerDouble==false)
+            playerDouble = true;
+    }
+    public void PlayerEndRevenge()//sends score to leaderboard
+    {
+        updateScore.LeadUpdate(totalScore);
+        ScoreTracking.totalScore =0;
+    }
+    #endregion
 }
