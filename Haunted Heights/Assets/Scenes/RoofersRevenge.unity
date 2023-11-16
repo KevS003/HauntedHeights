@@ -21981,7 +21981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 572d700530c7b5943af0a9cb6b508d48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTime: 10
+  targetTime: 30000
   timeAddition: 10
   timeSubtract: 3
   scoreEnd: {fileID: 1711771470}
@@ -29356,8 +29356,9 @@ MonoBehaviour:
   poofBad: {fileID: 8300000, guid: 75a44c2af4944984e8da5e5bc3a9d311, type: 3}
   scoreDouble: 0
   effects:
-  - {fileID: 8926484042661614526, guid: 78d516fc2890e3f49aae3efaeea8458c, type: 3}
-  - {fileID: 8926484042661614526, guid: e0aec27c413872048887edb046773781, type: 3}
+  - {fileID: 3380455252134838648, guid: 1f0abab54960e424c8794bd262b54b45, type: 3}
+  - {fileID: 8181676945309082278, guid: 0f8f05a45bba4d54da85a9ca3f7b05e8, type: 3}
+  - {fileID: 8181676945309082278, guid: 0f8f05a45bba4d54da85a9ca3f7b05e8, type: 3}
 --- !u!1 &1948435361
 GameObject:
   m_ObjectHideFlags: 0

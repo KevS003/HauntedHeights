@@ -22,7 +22,7 @@ public class RevengeClick : MonoBehaviour
     public AudioClip ghostPoof;
     public AudioClip poofBad;
     public bool scoreDouble;
-    public VisualEffectAsset[] effects;
+    public GameObject[] effects;
 
     //private AudioSource soundSource;
 
@@ -52,7 +52,7 @@ public class RevengeClick : MonoBehaviour
                             //Could work with spawner
                             
                             Debug.Log("DIEEEEEEEEEEEE");
-                            //VisualEffectAsset _ = Instantiate (effects[0], hit.point, Quaternion.identity);
+                            _ = Instantiate (effects[0], hit.point, Quaternion.identity);
                             scoreFunctCall.PlayerScoredRevenge(scoreDouble);
                             audioStuff.PlaySound(ghostPoof);
                             Destroy(bc.gameObject);
@@ -60,6 +60,7 @@ public class RevengeClick : MonoBehaviour
                         }
                         else if(bc.gameObject.tag == "powerup")
                         {
+                            _ = Instantiate (effects[1], hit.point, Quaternion.identity);
                             PUItemRevenge quickref=bc.gameObject.GetComponent<PUItemRevenge>();
                             quickref.PowerUp();                           
                             //send to powerup script and run function.
@@ -69,6 +70,7 @@ public class RevengeClick : MonoBehaviour
                         }
                         else if(bc.gameObject.tag == "ghostBad")
                         {
+                            _ = Instantiate (effects[2], hit.point, Quaternion.identity);
                             timeRef.TimeSub();
                             audioStuff.PlaySound(poofBad);
                             Destroy(bc.gameObject);
