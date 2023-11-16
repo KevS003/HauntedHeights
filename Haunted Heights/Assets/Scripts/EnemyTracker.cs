@@ -16,6 +16,7 @@ public class EnemyTracker : MonoBehaviour
     
 
     public float distance;
+    public float maxValue;
 
     void Start()
     { 
@@ -54,7 +55,7 @@ public class EnemyTracker : MonoBehaviour
 
     public void DistanceBarUpdate()
     {
-        distanceBar.value = 200 - (distance);
+        distanceBar.value = maxValue - (distance);
     }
 
 }
