@@ -11,6 +11,7 @@ public class RevengeClick : MonoBehaviour
     public GameObject spawner;
     public GameObject scoreTracker;
     private ScoreTracking scoreFunctCall;
+    public Timer timeRef;
     public AudioPlayer audioStuff;
 
     //Temp UI clicks
@@ -19,7 +20,7 @@ public class RevengeClick : MonoBehaviour
 
     //AUDIO STUFF
     public AudioClip ghostPoof;
-    public AudioClip powerUp;
+    public AudioClip poofBad;
     public bool scoreDouble;
     public VisualEffectAsset[] effects;
 
@@ -43,7 +44,7 @@ public class RevengeClick : MonoBehaviour
                 //nailRef = bc.GetComponent<GameObject>();
                 if(bc!= null)
                 {
-                    if(bc.gameObject.tag == "gameObject" || bc.gameObject.tag == "ghost"|| bc.gameObject.tag == "powerup")
+                    if(bc.gameObject.tag == "ghostBad" || bc.gameObject.tag == "ghost"|| bc.gameObject.tag == "powerup")
                     {
                         if(bc.gameObject.tag == "ghost")
                         {
@@ -53,6 +54,7 @@ public class RevengeClick : MonoBehaviour
                             Debug.Log("DIEEEEEEEEEEEE");
                             //VisualEffectAsset _ = Instantiate (effects[0], hit.point, Quaternion.identity);
                             scoreFunctCall.PlayerScoredRevenge(scoreDouble);
+                            audioStuff.PlaySound(ghostPoof);
                             Destroy(bc.gameObject);
                                
                         }
@@ -65,10 +67,12 @@ public class RevengeClick : MonoBehaviour
                             //slow time should send info to another script to run a coroutine 
 
                         }
-                        /* else if(bc.gameObject.tag == "gameObject")
+                        else if(bc.gameObject.tag == "ghostBad")
                         {
-                            //idk yet
-                        } */
+                            timeRef.TimeSub();
+                            audioStuff.PlaySound(poofBad);
+                            Destroy(bc.gameObject);
+                        } 
                     }
                     
                 }
