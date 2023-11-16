@@ -8,6 +8,8 @@ TagManager:
   - Stop
   - Enemy
   - Win
+  - ghost
+  - powerup
   layers:
   - Default
   - TransparentFX

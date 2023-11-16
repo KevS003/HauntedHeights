@@ -8,12 +8,11 @@ public class PowerUpRevenge : MonoBehaviour//gets referenced by items b4 destruc
 {
     //script references
     public ScoreTracking scoreMult;
-    public EnemyController ghostSpeed;
     public DestroyClick autoDestroyNails;
-    public CubeController extraLifeInv;
     public CubeController playerSpeedUp;
     public AudioPlayer audioStuff;
     public CurrencyScript coinStuff;
+    public RevengeClick rvgRef;
 
     //type selector
     [SerializeField]
@@ -37,25 +36,23 @@ public class PowerUpRevenge : MonoBehaviour//gets referenced by items b4 destruc
     private float autoDestructTime = 10f;
 
     //UI
-    public GameObject autohammer;
     public GameObject slowghost;
     public GameObject doublepoints;
 
     //AudioClips
-    private AudioSource source;
     public AudioClip ghostSlowAudio;
     public AudioClip speedPlayerAudio;
     public AudioClip doublePointsAudio;
-    public AudioClip coinAudio;  
-
+    public AudioClip coinAudio;
+    public float doubleTimer;
+    public float slowTimer;
 
     public void Start()
     {
-        source = GetComponent<AudioSource>();
-        autohammer.SetActive(false);
+        //source = GetComponent<AudioSource>();
+        //autohammer.SetActive(false);
         slowghost.SetActive(false);
         doublepoints.SetActive(false);
-        
     }
     /* private void Awake() 
     {
@@ -75,30 +72,40 @@ public class PowerUpRevenge : MonoBehaviour//gets referenced by items b4 destruc
     } */
     public void PowerUp(int type)
     {
-        if(type == 0)
+        if(type == 0)//multiplier
         {
-
+            audioStuff.PlaySound(doublePointsAudio);
+            StartCoroutine(DoubleTimer());
         }
-        else if(type==1)
+        else if(type==1)//slowTime 
         {
-
+            audioStuff.PlaySound(ghostSlowAudio);
+            StartCoroutine(SlowTime());
         }
-        else if(type == 2)
+        else if(type == 2)//coin
         {
-
-        }
-        else if(type == 3)
-        {
-
-        }
-        else if(type ==4)
-        {
-
+            audioStuff.PlaySound(coinAudio);
         }
     }
 
-    private void PlaySound(AudioClip sound)
+    /* private void PlaySound(AudioClip sound)
     {
         source.PlayOneShot(sound);
+    } */
+    IEnumerator DoubleTimer()
+    {
+        rvgRef.scoreDouble = true;
+        doublepoints.SetActive(true);
+        yield return new WaitForSeconds(doubleTimer);
+        rvgRef.scoreDouble = false;
+        doublepoints.SetActive(false);
+    }
+    IEnumerator SlowTime()
+    {
+        Time.timeScale = .05f;
+        slowghost.SetActive(true);
+        yield return new WaitForSeconds(slowTimer);
+        slowghost.SetActive(false);
+        Time.timeScale = 1;
     }
 }

@@ -87,4 +87,9 @@ public class MainMenu : MonoBehaviour
         gameStarted = false;
 
     }
+    public void ReturnToMainRevenge()
+    {
+        SceneManager.LoadScene(2);
+        gameStarted = false;
+    }
 }

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -2421195185283108998}
   m_Layer: 0
   m_Name: GhostSpeedPower
-  m_TagString: Untagged
+  m_TagString: powerup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,16 +126,23 @@ MonoBehaviour:
   autoDestroyNails: {fileID: 0}
   extraLifeInv: {fileID: 0}
   playerSpeedUp: {fileID: 0}
+  audioStuff: {fileID: 0}
+  coinStuff: {fileID: 0}
   multiplier: 0
   slowGhost: 1
   buildHammer: 1
   speedUpPlayer: 0
   extraLife: 0
   invincibility: 0
+  coin: 0
   autoDestructTime: 10
   autohammer: {fileID: 0}
   slowghost: {fileID: 0}
   doublepoints: {fileID: 0}
+  ghostSlowAudio: {fileID: 0}
+  speedPlayerAudio: {fileID: 0}
+  doublePointsAudio: {fileID: 0}
+  coinAudio: {fileID: 0}
 --- !u!95 &5101720664177079349
 Animator:
   serializedVersion: 5

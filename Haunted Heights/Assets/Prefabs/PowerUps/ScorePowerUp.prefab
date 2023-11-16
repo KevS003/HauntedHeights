@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5598639771465355688}
   m_Layer: 0
   m_Name: ScorePowerUp
-  m_TagString: Untagged
+  m_TagString: powerup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,16 +126,23 @@ MonoBehaviour:
   autoDestroyNails: {fileID: 0}
   extraLifeInv: {fileID: 0}
   playerSpeedUp: {fileID: 0}
+  audioStuff: {fileID: 0}
+  coinStuff: {fileID: 0}
   multiplier: 1
   slowGhost: 0
   buildHammer: 0
   speedUpPlayer: 0
   extraLife: 0
   invincibility: 0
+  coin: 0
   autoDestructTime: 10
   autohammer: {fileID: 0}
   slowghost: {fileID: 0}
   doublepoints: {fileID: 0}
+  ghostSlowAudio: {fileID: 0}
+  speedPlayerAudio: {fileID: 0}
+  doublePointsAudio: {fileID: 0}
+  coinAudio: {fileID: 0}
 --- !u!95 &8108389513076059246
 Animator:
   serializedVersion: 5

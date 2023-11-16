@@ -31,7 +31,7 @@ PrefabInstance:
     - target: {fileID: 4610431815210551708, guid: 29e18994821974a4e811ef963a05c100,
         type: 3}
       propertyPath: m_TagString
-      value: gameObject
+      value: ghost
       objectReference: {fileID: 0}
     - target: {fileID: 4901721446564250482, guid: 29e18994821974a4e811ef963a05c100,
         type: 3}
@@ -150,5 +150,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.71429384
+  m_Center: {x: -0.33256352, y: 0, z: 0}

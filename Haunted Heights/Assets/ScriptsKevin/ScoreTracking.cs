@@ -17,11 +17,15 @@ public class ScoreTracking : MonoBehaviour //controls UI and score tracking. Cou
     public GameObject doublepoints;
     //LEADERBOARD update
     public LeaderBoard updateScore;
+    public RevengeLeadBoard rvgScore;//
     public CurrencyScript coinRef;
 
 
     static public int totalScore=0;
+    static public int totalScoreRevenge=0;
     private static ScoreTracking _instance;
+    public Timer timeRef;
+
     public static ScoreTracking Instance{get {return _instance;}}
     // Start is called before the first frame update
     void Start()
@@ -38,7 +42,18 @@ public class ScoreTracking : MonoBehaviour //controls UI and score tracking. Cou
     // Update is called once per frame
     void Update()
     {
-        scoreCountText.text = totalScore.ToString();
+        if(updateScore!= null)
+        {
+            //Debug.Log("regularscore");
+            scoreCountText.text = totalScore.ToString();
+        }    
+        else
+        {
+            //Debug.Log("REvengeScoer");
+            scoreCountText.text = totalScoreRevenge.ToString();
+        }
+            
+
         coinCountText.text = "Coins: "+ coinRef.currencyPass.ToString(); 
 
         if(playerDouble == true && powerUpTime > 0.0f)
@@ -53,6 +68,7 @@ public class ScoreTracking : MonoBehaviour //controls UI and score tracking. Cou
             //UI here
             doublepoints.SetActive(false);
         }
+
     }
     #region Regular game mode scoring 
     public void PlayerScored()
@@ -81,28 +97,32 @@ public class ScoreTracking : MonoBehaviour //controls UI and score tracking. Cou
     #endregion
     
     #region Revenge game mode scoring 
-    public void PlayerScoredRevenge()
+    public void PlayerScoredRevenge(bool isDouble)
     {
-        if(playerDouble == false)
-            totalScore++;
-        else if(playerDouble == true)
+        if(isDouble == false)
+            totalScoreRevenge++;
+        else if(isDouble == true)
         {
             Debug.Log("We score two");
-            totalScore+=2;
+            totalScoreRevenge+=2;
             //UI for double points, move to update
         }
+        if(totalScoreRevenge%10==0)//every th is a timer update
+        {
+            timeRef.TimeAdded();
+        }  
 
     }
-    public void PlayerDoubleRevenge()
+    /* public void PlayerDoubleRevenge()
     {
         Debug.Log("I here");
         if(playerDouble==false)
             playerDouble = true;
-    }
+    } */ 
     public void PlayerEndRevenge()//sends score to leaderboard
     {
-        updateScore.LeadUpdate(totalScore);
-        ScoreTracking.totalScore =0;
+        rvgScore.LeadUpdate(totalScoreRevenge);//make a function for revenge lead
+        totalScoreRevenge =0;
     }
     #endregion
 }
