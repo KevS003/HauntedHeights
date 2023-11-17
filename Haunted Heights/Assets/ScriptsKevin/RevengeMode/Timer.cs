@@ -12,9 +12,12 @@ public class Timer : MonoBehaviour//Timer for revenge mode
     public ScoreTracking scoreEnd;
    // public GameObject timerObj;
     public TextMeshProUGUI timerText;
+    public GameObject plusTime;
     public GameObject clickRef;
     public GameObject loseUI;
-    
+    private void Start() {
+        plusTime.SetActive(false);
+    }
 
     void Update()//STOPS GAME AND SENDS SCORES
     {
@@ -30,6 +33,7 @@ public class Timer : MonoBehaviour//Timer for revenge mode
     }
     public void TimeAdded()
     {
+        StartCoroutine(UItimer());
         targetTime +=timeAddition;
     }
     public void TimeSub()
@@ -46,6 +50,12 @@ public class Timer : MonoBehaviour//Timer for revenge mode
         clickRef.gameObject.SetActive(false);
         //Activate UI here
         loseUI.SetActive(true);
+    }
+    IEnumerator UItimer()
+    {
+        plusTime.SetActive(true);
+        yield return new WaitForSeconds(2);
+        plusTime.SetActive(false);
     }
     
 }

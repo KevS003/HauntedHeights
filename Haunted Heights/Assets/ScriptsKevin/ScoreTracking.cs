@@ -108,7 +108,7 @@ public class ScoreTracking : MonoBehaviour //controls UI and score tracking. Cou
             totalScoreRevenge+=2;
             //UI for double points, move to update
         }
-        if(totalScoreRevenge>currentTen)//every th is a timer update
+        if(totalScoreRevenge>=currentTen)//every th is a timer update
         {
             timeRef.TimeAdded();
             //Spawnicon to signify +10
