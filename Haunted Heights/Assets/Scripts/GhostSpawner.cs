@@ -23,17 +23,25 @@ public class GhostSpawner : MonoBehaviour
 
     void SpawnGhost()
     {
-        Vector2 spawnPosition = new Vector2(
-            Random.Range(spawnBoundaryMin.x, spawnBoundaryMax.x),
-            Random.Range(spawnBoundaryMin.y, spawnBoundaryMax.y)
-        );
+        Vector3 spawnerPosition = transform.position;
 
-        GameObject newGhost = Instantiate(ghostPrefab, spawnPosition, Quaternion.identity);
-        GhostMovement ghostMovement = newGhost.GetComponent<GhostMovement>();
+    Vector3 spawnPosition = new Vector3(
+        Random.Range(spawnBoundaryMin.x, spawnBoundaryMax.x),
+        Random.Range(spawnBoundaryMin.y, spawnBoundaryMax.y),
+        0f // Assuming the spawn is in the 2D space (X, Y) on the ground plane
+    );
 
-        if (ghostMovement != null)
-        {
-            ghostMovement.SetMovementType(defaultMovementType);
-        }
+    // Adding the spawner's position to the spawnPosition
+    spawnPosition += spawnerPosition;
+
+    Debug.Log("Spawn Position: " + spawnPosition); // Log the spawn position
+
+    GameObject newGhost = Instantiate(ghostPrefab, spawnPosition, Quaternion.identity);
+    GhostMovement ghostMovement = newGhost.GetComponent<GhostMovement>();
+
+    if (ghostMovement != null)
+    {
+        ghostMovement.SetMovementType(defaultMovementType);
+    }
     }
 }
