@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GhostSpawner : MonoBehaviour
 {
-    public GameObject ghostPrefab;
+    public GameObject[] itemSpawn;
     public float spawnRate = 1.5f;
     public Vector2 spawnBoundaryMin;
     public Vector2 spawnBoundaryMax;
@@ -16,7 +16,8 @@ public class GhostSpawner : MonoBehaviour
     {
         if (Time.time > nextSpawnTime)
         {
-            SpawnGhost();
+            //SpawnGhost();
+            Spawner();
             nextSpawnTime = Time.time + spawnRate;
         }
     }
@@ -26,14 +27,18 @@ public class GhostSpawner : MonoBehaviour
         Vector2 spawnPosition = new Vector2(
             Random.Range(spawnBoundaryMin.x, spawnBoundaryMax.x),
             Random.Range(spawnBoundaryMin.y, spawnBoundaryMax.y)
-        );
+        ); 
 
-        GameObject newGhost = Instantiate(ghostPrefab, spawnPosition, Quaternion.identity);
+        GameObject newGhost = Instantiate(itemSpawn[Random.Range(0,itemSpawn.Length)], spawnPosition, Quaternion.identity);
         GhostMovement ghostMovement = newGhost.GetComponent<GhostMovement>();
 
         if (ghostMovement != null)
         {
             ghostMovement.SetMovementType(defaultMovementType);
         }
+    }
+    void Spawner()
+    {
+         GameObject newGhost = Instantiate(itemSpawn[Random.Range(0,itemSpawn.Length)], this.gameObject.transform.position, Quaternion.identity);
     }
 }

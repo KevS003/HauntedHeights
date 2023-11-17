@@ -25,6 +25,7 @@ public class ScoreTracking : MonoBehaviour //controls UI and score tracking. Cou
     static public int totalScoreRevenge=0;
     private static ScoreTracking _instance;
     public Timer timeRef;
+    private int currentTen=10;
 
     public static ScoreTracking Instance{get {return _instance;}}
     // Start is called before the first frame update
@@ -107,9 +108,11 @@ public class ScoreTracking : MonoBehaviour //controls UI and score tracking. Cou
             totalScoreRevenge+=2;
             //UI for double points, move to update
         }
-        if(totalScoreRevenge%10==0)//every th is a timer update
+        if(totalScoreRevenge>currentTen)//every th is a timer update
         {
             timeRef.TimeAdded();
+            //Spawnicon to signify +10
+            currentTen+=10;
         }  
 
     }

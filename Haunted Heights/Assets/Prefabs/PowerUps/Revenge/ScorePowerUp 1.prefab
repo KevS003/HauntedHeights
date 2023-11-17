@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6751378587647742064}
   - component: {fileID: 37852186801039294}
   - component: {fileID: 1078554014852334013}
-  - component: {fileID: 8108389513076059246}
   - component: {fileID: 2466908756199524677}
   - component: {fileID: 6875914773216990877}
+  - component: {fileID: 7699477418855743773}
   m_Layer: 0
   m_Name: ScorePowerUp 1
   m_TagString: powerup
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 2156788724927904729}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4.0052, y: 4.0052, z: 4.0052}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2058060602591951572}
@@ -109,27 +109,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &8108389513076059246
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2156788724927904729}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e629b8ce382e54546b91184621d22a0e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &2466908756199524677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +152,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7699477418855743773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2156788724927904729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c74fcdb82fbda1f4481761d46e007afa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpEnemy: {fileID: 0}
+  scoreRef: {fileID: 0}
+  uiTimer: 1
 --- !u!1001 &1946973734250569023
 PrefabInstance:
   m_ObjectHideFlags: 0

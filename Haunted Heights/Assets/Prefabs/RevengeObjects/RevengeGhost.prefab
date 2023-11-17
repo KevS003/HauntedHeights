@@ -40,6 +40,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4901721446564250482, guid: 29e18994821974a4e811ef963a05c100,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6124734
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901721446564250482, guid: 29e18994821974a4e811ef963a05c100,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 6.47999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901721446564250482, guid: 29e18994821974a4e811ef963a05c100,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 7.3849697
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901721446564250482, guid: 29e18994821974a4e811ef963a05c100,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -126.69892
       objectReference: {fileID: 0}
@@ -128,6 +143,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5993343668275195454}
+    - targetCorrespondingSourceObject: {fileID: 4610431815210551708, guid: 29e18994821974a4e811ef963a05c100,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6892120764225845862}
   m_SourcePrefab: {fileID: 100100000, guid: 29e18994821974a4e811ef963a05c100, type: 3}
 --- !u!1 &4221070535285055263 stripped
 GameObject:
@@ -163,7 +182,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4221070535285055263}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ddf09a948c0d4bef905a088f745ea11, type: 3}
   m_Name: 
@@ -171,3 +190,19 @@ MonoBehaviour:
   speed: 3
   moveDistance: 10
   waypoints: []
+  currentMovementType: 0
+--- !u!114 &6892120764225845862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4221070535285055263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c74fcdb82fbda1f4481761d46e007afa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpEnemy: {fileID: 0}
+  scoreRef: {fileID: 0}
+  uiTimer: 1

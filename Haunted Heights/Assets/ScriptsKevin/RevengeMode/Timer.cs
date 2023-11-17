@@ -40,6 +40,7 @@ public class Timer : MonoBehaviour//Timer for revenge mode
     void TimerEnded()
     {
     //ACTIVATE LOSE SCREEN AND BIG SCORE
+        timerText.text = "Timer: 0";
         scoreEnd.PlayerEndRevenge();
         Time.timeScale = 0;
         clickRef.gameObject.SetActive(false);
