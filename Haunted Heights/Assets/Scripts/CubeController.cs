@@ -25,6 +25,7 @@ public class CubeController : MonoBehaviour
 
     //UI ref
     public GameObject autohammer;
+    public GameObject CoinsUI;
 
     gameManager GameManager;
     [SerializeField]
@@ -50,6 +51,7 @@ public class CubeController : MonoBehaviour
         GameManager = gameController.GetComponent<gameManager>();
         animSpeedStart = playerAnims.speed;
         minSpeedPlayer = GameManager.moveSpeed;
+        CoinsUI.SetActive(true);
         //Scene currentScene = SceneManager.GetActiveScene();
         //sceneName = currentScene.name;
         /* if(sceneName == "End")
