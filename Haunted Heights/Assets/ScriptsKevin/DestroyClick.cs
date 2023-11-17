@@ -39,6 +39,7 @@ public class DestroyClick : MonoBehaviour
     //AUDIO STUFF
     public AudioClip correctNail;
     public AudioClip notRight;
+    public GameObject[] effects;
     //private AudioSource soundSource;
 
     private void Start() 
@@ -70,7 +71,8 @@ public class DestroyClick : MonoBehaviour
                         if(nailNumRef.spawnNumOrder == nailOrder)//checks the nail picked//play sound here
                         {
                             audioStuff.PlaySound(correctNail);
-                            tempRef.Hit();
+                             _ = Instantiate (effects[0], hit.point, Quaternion.identity);
+                            //tempRef.Hit();
                             Destroy(bc.gameObject);
                             objectsDestroyed++;
                             if(nailOrder<4 )
@@ -81,7 +83,8 @@ public class DestroyClick : MonoBehaviour
                         else
                         {
                             audioStuff.PlaySound(notRight);
-                            tempRef.Miss();
+                             _ = Instantiate (effects[1], hit.point, Quaternion.identity);
+                            //tempRef.Miss();
                             enemySpeedRef.speedUpGhost();
                             //slowghost.SetActive(false);//turns off ghost UI
                         }
