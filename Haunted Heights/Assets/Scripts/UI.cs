@@ -25,4 +25,8 @@ public class UI : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+    public void EnterRevenge()
+    {
+        SceneManager.LoadScene(2);
+    }    
 }
