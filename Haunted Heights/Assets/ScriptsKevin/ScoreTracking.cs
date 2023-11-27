@@ -25,6 +25,9 @@ public class ScoreTracking : MonoBehaviour //controls UI and score tracking. Cou
     static public int totalScoreRevenge=0;
     private static ScoreTracking _instance;
     public Timer timeRef;
+    private int currentTen=10;
+    public TextMeshProUGUI finalScore;
+    private bool finalShow;
 
     public static ScoreTracking Instance{get {return _instance;}}
     // Start is called before the first frame update
@@ -107,9 +110,11 @@ public class ScoreTracking : MonoBehaviour //controls UI and score tracking. Cou
             totalScoreRevenge+=2;
             //UI for double points, move to update
         }
-        if(totalScoreRevenge%10==0)//every th is a timer update
+        if(totalScoreRevenge>=currentTen)//every th is a timer update
         {
             timeRef.TimeAdded();
+            //Spawnicon to signify +10
+            currentTen+=10;
         }  
 
     }
@@ -121,6 +126,13 @@ public class ScoreTracking : MonoBehaviour //controls UI and score tracking. Cou
     } */ 
     public void PlayerEndRevenge()//sends score to leaderboard
     {
+        Debug.Log("Final Score UI: " + totalScoreRevenge);
+        if(finalShow == false)
+        {
+            finalScore.text = "Final Score: " + totalScoreRevenge.ToString("0");
+            finalShow = true;
+        }
+        
         rvgScore.LeadUpdate(totalScoreRevenge);//make a function for revenge lead
         totalScoreRevenge =0;
     }

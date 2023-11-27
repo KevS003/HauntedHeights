@@ -54,10 +54,10 @@ public class GhostMovement : MonoBehaviour
                 break;
         }
 
-        if (Input.GetMouseButtonDown(0) && IsMouseOverGhost())
+        /* if (Input.GetMouseButtonDown(0) && IsMouseOverGhost())
         {
             DestroyGhost();
-        }
+        } */
     }
 
     bool IsMouseOverGhost()

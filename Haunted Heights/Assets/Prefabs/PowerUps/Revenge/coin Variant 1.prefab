@@ -16,17 +16,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8205e574892fcf04f88af1ebb7fc7c9c,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.904731
+      value: 12.866507
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8205e574892fcf04f88af1ebb7fc7c9c,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.904731
+      value: 12.866507
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8205e574892fcf04f88af1ebb7fc7c9c,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.904731
+      value: 12.866507
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8205e574892fcf04f88af1ebb7fc7c9c,
         type: 3}
@@ -88,6 +88,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: coin Variant 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8205e574892fcf04f88af1ebb7fc7c9c,
+        type: 3}
+      propertyPath: m_TagString
+      value: powerup
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -100,6 +105,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: -4095547962615975567}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8205e574892fcf04f88af1ebb7fc7c9c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5344905486612886778}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8205e574892fcf04f88af1ebb7fc7c9c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4567919863855094047}
   m_SourcePrefab: {fileID: 100100000, guid: 8205e574892fcf04f88af1ebb7fc7c9c, type: 3}
 --- !u!1 &9032126540811831452 stripped
 GameObject:
@@ -144,3 +157,45 @@ MonoBehaviour:
   multiplier: 0
   slowTime: 0
   coin: 1
+--- !u!54 &5344905486612886778
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9032126540811831452}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &4567919863855094047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9032126540811831452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c74fcdb82fbda1f4481761d46e007afa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpEnemy: {fileID: 0}
+  scoreRef: {fileID: 0}
+  uiTimer: 1

@@ -14,6 +14,7 @@ public class EnemyController : MonoBehaviour
     public ScoreTracking scoreRef;
     private float minSpeedGhost;
     public float uiTimer= 1f;
+    private float speed;
 
     
 
@@ -21,6 +22,11 @@ public class EnemyController : MonoBehaviour
     {
         GameObject gameController = GameObject.FindGameObjectWithTag("GameController");
         GameManager = gameController.GetComponent<gameManager>();
+        if(gameObject.tag == "ghost"||gameObject.tag == "ghostBad"|| gameObject.tag == "powerup")
+        {
+            speed = (Random.Range(5,70));
+            //GameManager.enemySpeed= speed;
+        }
         minSpeedGhost = GameManager.enemySpeed;
     }
 
@@ -28,8 +34,12 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         //if statement if player scores an if player misses order.
-
-        transform.Translate(GameManager.moveVector * GameManager.enemySpeed *  Time.deltaTime);
+        if(gameObject.tag == "ghost"||gameObject.tag == "ghostBad"|| gameObject.tag == "powerup")
+        {
+            transform.Translate(GameManager.moveVector * speed *  Time.deltaTime);
+        }
+        else
+            transform.Translate(GameManager.moveVector * GameManager.enemySpeed *  Time.deltaTime);
 
     }
 

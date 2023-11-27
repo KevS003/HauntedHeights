@@ -12,6 +12,8 @@ public class NailNumberAssign : MonoBehaviour
     private VisualEffectAsset[] effects; 
     public int spawnNumOrder=0;
     public bool lastOne = false;
+    private bool moveUp = false;
+    private bool moveSide=false;
     // Start is called before the first frame update
     private void Awake() 
     {
@@ -65,13 +67,26 @@ public class NailNumberAssign : MonoBehaviour
         Physics.SyncTransforms();
         yield return new WaitForFixedUpdate();
         Collider[] hitColliders = Physics.OverlapBox(gameObject.transform.position, gameObject.GetComponent<CapsuleCollider>().bounds.extents, Quaternion.identity, LayerMask.GetMask("Default"));
-        if(hitColliders.Length >1)
+        for(int i =0; i<hitColliders.Length;i++)
         {
-            transform.position = new Vector3(Random.Range(transform.position.x-1,transform.position.x+1),transform.position.y,transform.position.z);
+             
+            NailNumberAssign nailMove = hitColliders[i].GetComponent<NailNumberAssign>();
+            if(hitColliders.Length >1&& moveUp == false && nailMove.spawnNumOrder < spawnNumOrder)
+            {
+                transform.position = new Vector3(transform.position.x,transform.position.y+1.5f,transform.position.z);
+                moveUp = true;
             //Random.Range(transform.position.x-1,transform.position.x+5),
+            }
+            else if(hitColliders.Length > 1 && moveUp == true&& nailMove.spawnNumOrder < spawnNumOrder)
+            {
+                transform.position = new Vector3(Random.Range(transform.position.x-.5f,transform.position.x+1.5f),transform.position.y,transform.position.z);
+            }
+            
         }
+        
+        
     }
-    public void Hit()
+    /* public void Hit()
     {
         effectRef.visualEffectAsset = effects[0];
         effectRef.Play();
@@ -81,5 +96,5 @@ public class NailNumberAssign : MonoBehaviour
     {
         effectRef.visualEffectAsset = effects[1];
         effectRef.Play();
-    }
+    } */
 }

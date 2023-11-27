@@ -558,17 +558,17 @@ PrefabInstance:
     - target: {fileID: 2466183241729148588, guid: 4b023d6930a443a4cbab4e16b72b36e0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.9
+      value: -2.4062629
       objectReference: {fileID: 0}
     - target: {fileID: 2466183241729148588, guid: 4b023d6930a443a4cbab4e16b72b36e0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 976.55035
+      value: 977.3139
       objectReference: {fileID: 0}
     - target: {fileID: 2466183241729148588, guid: 4b023d6930a443a4cbab4e16b72b36e0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.7
+      value: -7.673272
       objectReference: {fileID: 0}
     - target: {fileID: 2466183241729148588, guid: 4b023d6930a443a4cbab4e16b72b36e0,
         type: 3}
@@ -623,18 +623,44 @@ PrefabInstance:
     - target: {fileID: 5727584131861237844, guid: 4b023d6930a443a4cbab4e16b72b36e0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.993
+      value: -1.52
       objectReference: {fileID: 0}
     - target: {fileID: 5727584131861237844, guid: 4b023d6930a443a4cbab4e16b72b36e0,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.127
       objectReference: {fileID: 0}
+    - target: {fileID: 5727584131861237844, guid: 4b023d6930a443a4cbab4e16b72b36e0,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5727584131861237844, guid: 4b023d6930a443a4cbab4e16b72b36e0,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5727584131861237844, guid: 4b023d6930a443a4cbab4e16b72b36e0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: 6057366809053572230, guid: 4b023d6930a443a4cbab4e16b72b36e0,
         type: 3}
       propertyPath: m_Name
       value: Stop Box (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8944348091327586860, guid: 4b023d6930a443a4cbab4e16b72b36e0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047914600586101412, guid: 4b023d6930a443a4cbab4e16b72b36e0,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 6806359279557329920, guid: 86e27333ce175364bb15872205589d41,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

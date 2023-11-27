@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GhostSpawner : MonoBehaviour
 {
-    public GameObject ghostPrefab;
+    public GameObject[] itemSpawn;
     public float spawnRate = 1.5f;
     public Vector2 spawnBoundaryMin;
     public Vector2 spawnBoundaryMax;
@@ -16,32 +16,29 @@ public class GhostSpawner : MonoBehaviour
     {
         if (Time.time > nextSpawnTime)
         {
-            SpawnGhost();
+            //SpawnGhost();
+            Spawner();
             nextSpawnTime = Time.time + spawnRate;
         }
     }
 
     void SpawnGhost()
     {
-        Vector3 spawnerPosition = transform.position;
+        Vector2 spawnPosition = new Vector2(
+            Random.Range(spawnBoundaryMin.x, spawnBoundaryMax.x),
+            Random.Range(spawnBoundaryMin.y, spawnBoundaryMax.y)
+        ); 
 
-    Vector3 spawnPosition = new Vector3(
-        Random.Range(spawnBoundaryMin.x, spawnBoundaryMax.x),
-        Random.Range(spawnBoundaryMin.y, spawnBoundaryMax.y),
-        0f // Assuming the spawn is in the 2D space (X, Y) on the ground plane
-    );
+        GameObject newGhost = Instantiate(itemSpawn[Random.Range(0,itemSpawn.Length)], spawnPosition, Quaternion.identity);
+        GhostMovement ghostMovement = newGhost.GetComponent<GhostMovement>();
 
-    // Adding the spawner's position to the spawnPosition
-    spawnPosition += spawnerPosition;
-
-    Debug.Log("Spawn Position: " + spawnPosition); // Log the spawn position
-
-    GameObject newGhost = Instantiate(ghostPrefab, spawnPosition, Quaternion.identity);
-    GhostMovement ghostMovement = newGhost.GetComponent<GhostMovement>();
-
-    if (ghostMovement != null)
-    {
-        ghostMovement.SetMovementType(defaultMovementType);
+        if (ghostMovement != null)
+        {
+            ghostMovement.SetMovementType(defaultMovementType);
+        }
     }
+    void Spawner()
+    {
+         GameObject newGhost = Instantiate(itemSpawn[Random.Range(0,itemSpawn.Length)], this.gameObject.transform.position, Quaternion.identity);
     }
 }
