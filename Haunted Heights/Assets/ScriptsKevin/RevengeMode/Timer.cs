@@ -13,10 +13,22 @@ public class Timer : MonoBehaviour//Timer for revenge mode
    // public GameObject timerObj;
     public TextMeshProUGUI timerText;
     public GameObject plusTime;
+    public GameObject minusOne;
+    public GameObject losetwenty;
+    public GameObject loseMore;//Just incase
     public GameObject clickRef;
     public GameObject loseUI;
+    public float timeDownGhostWall;
+    public GameObject pauseUI;
+
     private void Start() {
         plusTime.SetActive(false);
+        minusOne.SetActive(false);
+        losetwenty.SetActive(false);
+        if(loseMore!=null)
+        {
+            loseMore.SetActive(false);
+        }
     }
 
     void Update()//STOPS GAME AND SENDS SCORES
@@ -28,17 +40,21 @@ public class Timer : MonoBehaviour//Timer for revenge mode
         {
             TimerEnded();
         }
-        
-
     }
     public void TimeAdded()
     {
-        StartCoroutine(UItimer());
+        StartCoroutine(UItimer(plusTime, 2));
         targetTime +=timeAddition;
     }
     public void TimeSub()
     {
+        StartCoroutine(UItimer(losetwenty, 1));
         targetTime -=timeSubtract;
+    }
+    public void TimeSubGhostWall()
+    {
+        StartCoroutine(UItimer(minusOne, 1));
+        targetTime-=timeDownGhostWall;
     }
 
     void TimerEnded()
@@ -48,14 +64,15 @@ public class Timer : MonoBehaviour//Timer for revenge mode
         scoreEnd.PlayerEndRevenge();
         Time.timeScale = 0;
         clickRef.gameObject.SetActive(false);
+        pauseUI.SetActive(false);
         //Activate UI here
         loseUI.SetActive(true);
     }
-    IEnumerator UItimer()
+    IEnumerator UItimer(GameObject settingOff, int screenTime)
     {
-        plusTime.SetActive(true);
-        yield return new WaitForSeconds(2);
-        plusTime.SetActive(false);
+        settingOff.SetActive(true);
+        yield return new WaitForSeconds(screenTime);
+        settingOff.SetActive(false);
     }
     
 }
