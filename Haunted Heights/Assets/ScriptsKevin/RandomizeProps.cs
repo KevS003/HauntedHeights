@@ -9,10 +9,12 @@ public class RandomizeProps : MonoBehaviour
     public GameObject[] roofType = new GameObject[3];
     public GameObject[] powerUp = new GameObject[4];
 
+
     void Awake()
     {
-        for(int i=0;i<propLocations.Length;i++)
-        {
+
+         for(int i=0;i<propLocations.Length;i++)
+            {
             
             if(i==0)
             {
@@ -27,13 +29,13 @@ public class RandomizeProps : MonoBehaviour
                 GameObject currentRoof = Instantiate(roofType[Random.Range(0,3)], propLocations[i], Quaternion.Euler(0,90,0));
                 GameObject currentPowerUp = Instantiate(powerUp[Random.Range(0,4)], propLocations[i] += new Vector3(8.76f,36.251f,0), Quaternion.Euler(0,90,0));
             }
-
-
+            }
+        }   
+        
             
             //Spawn power up, up and right
         }
-        
-    }
+    
 
 
-}
+
