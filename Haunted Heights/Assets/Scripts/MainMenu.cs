@@ -92,11 +92,4 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(2);
         gameStarted = false;
     }
-
-
-    public void ReturnToMainHoliday()
-    {
-        SceneManager.LoadScene("HolidayScene");
-        gameStarted = false;
-    }
 }
