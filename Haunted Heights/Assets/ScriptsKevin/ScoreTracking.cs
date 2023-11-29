@@ -9,6 +9,7 @@ public class ScoreTracking : MonoBehaviour //controls UI and score tracking. Cou
     private TextMeshProUGUI scoreCountText;
     public GameObject coinCount;
     private TextMeshProUGUI coinCountText;
+    public TextMeshProUGUI coinCountTextStore;
     private bool playerDouble= false;
     [SerializeField]
     private float powerUpTime = 10f;
@@ -57,7 +58,8 @@ public class ScoreTracking : MonoBehaviour //controls UI and score tracking. Cou
         }
             
 
-        coinCountText.text = "Coins: "+ coinRef.currencyPass.ToString(); 
+        coinCountText.text = "Coins: "+ coinRef.currencyPass.ToString();
+        coinCountTextStore.text = "Coins: "+ coinRef.currencyPass.ToString(); 
 
         if(playerDouble == true && powerUpTime > 0.0f)
         {

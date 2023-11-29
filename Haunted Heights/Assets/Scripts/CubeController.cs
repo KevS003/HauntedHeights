@@ -101,8 +101,18 @@ public class CubeController : MonoBehaviour
             
         if(health <= 0)
         {
-            deathScore.PlayerEnd();   
-            SceneManager.LoadScene("End");
+            string sceneRef = SceneManager.GetActiveScene().name;
+            if(sceneRef!="HolidayScene")
+            {
+                deathScore.PlayerEnd();   
+                SceneManager.LoadScene("End");
+            }
+            else
+            {
+                deathScore.PlayerEnd();   
+                SceneManager.LoadScene("HolidayEnd");
+            }
+            
         }
 
     }

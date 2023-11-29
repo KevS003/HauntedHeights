@@ -25,6 +25,10 @@ public class UI : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+    public void RestartChristmas()
+    {
+        SceneManager.LoadScene("HolidayScene");
+    }
     public void EnterRevenge()
     {
         SceneManager.LoadScene(2);

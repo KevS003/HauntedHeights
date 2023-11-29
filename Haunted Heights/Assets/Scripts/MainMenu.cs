@@ -29,6 +29,8 @@ public class MainMenu : MonoBehaviour
         {
             PlayGame();
             pauseMenu.SetActive(false);
+            
+
         }
 
         //go to playgame function immediately 
@@ -38,7 +40,6 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = 1f;
         mainMenu.SetActive(false);
         gameStarted = true;
-        
     }
 
     public void Store()
