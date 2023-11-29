@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class DestroyObject : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    public Timer timeRef;
     // Update is called once per frame
     
     private void OnTriggerEnter(Collider other) {
         if(other.tag == "ghost"|| other.tag == "powerup"|| other.tag== "ghostBad")
+        {
+            if(other.tag == "ghost")
+                timeRef.TimeSubGhostWall();
             Destroy(other.gameObject);
+        }
+            
+            
     }
 }
