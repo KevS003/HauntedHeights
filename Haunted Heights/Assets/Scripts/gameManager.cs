@@ -10,4 +10,17 @@ public class gameManager : MonoBehaviour
     public Vector3 moveVector;
     public float speedMultiplier = 1.3f;
     public float speedUp = 1.3f;
+
+    public GameData gameData;
+    private void Awake() 
+    {
+        gameData = SaveSystem.Load();    
+    }
+    public void GameOver()
+    {
+        //gameData.totalCoins+=
+        //Get coins from other scripts 
+        //get score from other script 
+        //call this function after the player loses and take in coins and score as a parameter.  
+    }
 }

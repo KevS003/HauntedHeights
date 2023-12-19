@@ -1023,6 +1023,62 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1189114956}
   m_SourcePrefab: {fileID: 100100000, guid: 56720a1b75e687941977eb1cb4b10054, type: 3}
+--- !u!1 &458001289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 458001291}
+  - component: {fileID: 458001290}
+  m_Layer: 0
+  m_Name: gameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &458001290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458001289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 943be44d72e55304387b5ea784399dd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  enemySpeed: 0.2
+  moveVector: {x: 0, y: 0, z: 0}
+  speedMultiplier: 1.3
+  speedUp: 1.3
+  gameData:
+    totalCoins: 0
+    totalScoreRevengeMode: 0
+    leaderBoard: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+    rLeadBoard: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+    skinsUnlocked: 010000
+    volume: 0.5
+--- !u!4 &458001291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458001289}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 471.09604, y: 244.77849, z: -5.127345}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &502834903
 GameObject:
   m_ObjectHideFlags: 0
@@ -1522,6 +1578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leaderBoardObj: {fileID: 2111733141}
+  data: {fileID: 458001290}
 --- !u!4 &779396946
 Transform:
   m_ObjectHideFlags: 0

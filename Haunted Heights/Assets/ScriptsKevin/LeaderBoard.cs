@@ -9,15 +9,20 @@ using UnityEngine;
 public class LeaderBoard : MonoBehaviour
 {
     static public int[] leaderBoard = new int[10];
-    private int[] sortedLeaderBoard = new int[10];
+    //private int[] sortedLeaderBoard = new int[10];
     TextMeshProUGUI leaderBoardText;
     public GameObject leaderBoardObj;
     private bool boardOpen;
+    public gameManager data;
     private void Start() 
     {
         Scene scene = SceneManager.GetActiveScene();
         //if(scene.name == "End")//Potentially change for main menu leaderboard
         leaderBoardText = leaderBoardObj.GetComponent<TextMeshProUGUI>(); 
+        for(int i =0; i<=9;i++)
+        {
+           leaderBoard[i]= data.gameData.leaderBoard[i];
+        }
 
     }
 
@@ -31,6 +36,11 @@ public class LeaderBoard : MonoBehaviour
         leaderBoard[9]=score;
         Array.Sort(leaderBoard);
         Array.Reverse(leaderBoard);
+        for(int i =0; i<=9;i++)
+        {
+            data.gameData.leaderBoard[i]= leaderBoard[i];
+        }
+        SaveSystem.Save(data.gameData);
         //WriteBoard();
         //Debug.Log("LeaderBoard: " + leaderBoard[0]);
     }

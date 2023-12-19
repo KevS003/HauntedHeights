@@ -10,17 +10,28 @@ public class CurrencyScript : MonoBehaviour
     public int priceSkin3;
     static private bool purchased2;
     static private bool purchased3;
+    public gameManager data;
     //public CubeController playerRef;
 
     // Start is called before the first frame update
     void Start()
     {
+        currency = data.gameData.totalCoins;
         currencyPass=currency;
+        if(data.gameData.skinsUnlocked[1]==true)
+        {
+            purchased2 = true;
+        }
+        if(data.gameData.skinsUnlocked[2]==true)
+        {
+            purchased3 = true;
+        }
     }
     public void GotCoin()
     {
         currency++;
         currencyPass= currency;
+        data.gameData.totalCoins = currency;
     }
     public bool SkinPurchase(int whichOne)
     {
@@ -34,7 +45,10 @@ public class CurrencyScript : MonoBehaviour
                 {
                     currency-=priceSkin2;
                     currencyPass = currency;
+                    data.gameData.totalCoins = currency;
                     purchased2 = true;
+                    data.gameData.skinsUnlocked[1]=true;
+                    SaveSystem.Save(data.gameData);
                 }
                     
                 return true;
@@ -50,7 +64,10 @@ public class CurrencyScript : MonoBehaviour
                 {
                     currency-=priceSkin3;
                     currencyPass = currency;
+                    data.gameData.totalCoins = currency;
                     purchased3=true;
+                    data.gameData.skinsUnlocked[2]=true;
+                    SaveSystem.Save(data.gameData);
                 }
                     
                 return true;
