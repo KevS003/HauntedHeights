@@ -9919,7 +9919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 467537621}
   gameUI: {fileID: 2065701054}
-  optionsMenu: {fileID: 761938446}
+  optionsMenu: {fileID: 0}
   storeMenu: {fileID: 0}
   creditsMenu: {fileID: 1699456374}
   pauseMenu: {fileID: 410363765}
@@ -10892,7 +10892,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 9b7a042380d23084fb79e56fcbb85379, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.101
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -12184,8 +12184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 70921381c651c0549b8c9ee78c419d4e, type: 2}
-  volLvl: 1
-  data: {fileID: 0}
+  volLvl: 0.1
+  data: {fileID: 1945623161}
 --- !u!114 &902917761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16985,7 +16985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 467537621}
   gameUI: {fileID: 2065701054}
-  optionsMenu: {fileID: 761938446}
+  optionsMenu: {fileID: 0}
   storeMenu: {fileID: 0}
   creditsMenu: {fileID: 1699456374}
   pauseMenu: {fileID: 410363765}
@@ -26943,7 +26943,8 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6dde2a6df294934d9e2618aed771274, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2529638692813082143, guid: f6dde2a6df294934d9e2618aed771274,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -27006,7 +27007,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1768431214
@@ -28016,7 +28017,8 @@ MonoBehaviour:
   m_text: Master Sound
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6dde2a6df294934d9e2618aed771274, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2529638692813082143, guid: f6dde2a6df294934d9e2618aed771274,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -28079,7 +28081,7 @@ MonoBehaviour:
   m_margin: {x: -48.013855, y: 0, z: -43.089294, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1849393284
@@ -28599,7 +28601,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: dce4999e5e6519d4b9288d0b350f9adb, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.291
+  m_Volume: 0.094
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -29765,7 +29767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 467537621}
   gameUI: {fileID: 2065701054}
-  optionsMenu: {fileID: 761938446}
+  optionsMenu: {fileID: 0}
   storeMenu: {fileID: 0}
   creditsMenu: {fileID: 1699456374}
   pauseMenu: {fileID: 410363765}
@@ -30673,7 +30675,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 467537621}
   gameUI: {fileID: 2065701054}
-  optionsMenu: {fileID: 761938446}
+  optionsMenu: {fileID: 0}
   storeMenu: {fileID: 0}
   creditsMenu: {fileID: 1699456374}
   pauseMenu: {fileID: 410363765}
@@ -31322,7 +31324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 467537621}
   gameUI: {fileID: 2065701054}
-  optionsMenu: {fileID: 761938446}
+  optionsMenu: {fileID: 0}
   storeMenu: {fileID: 0}
   creditsMenu: {fileID: 1699456374}
   pauseMenu: {fileID: 410363765}

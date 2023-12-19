@@ -12654,7 +12654,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 9b7a042380d23084fb79e56fcbb85379, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.027
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -13982,7 +13982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 70921381c651c0549b8c9ee78c419d4e, type: 2}
-  volLvl: 0.5
+  volLvl: 0.1
   data: {fileID: 1945623161}
 --- !u!114 &902917761
 MonoBehaviour:
@@ -32168,7 +32168,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: dce4999e5e6519d4b9288d0b350f9adb, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.291
+  m_Volume: 0.08
   m_Pitch: 1
   Loop: 1
   Mute: 0

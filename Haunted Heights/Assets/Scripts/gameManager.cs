@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Audio;
+using System;
 
 public class gameManager : MonoBehaviour
 {
@@ -10,11 +12,10 @@ public class gameManager : MonoBehaviour
     public Vector3 moveVector;
     public float speedMultiplier = 1.3f;
     public float speedUp = 1.3f;
-
     public GameData gameData;
     private void Awake() 
     {
-        gameData = SaveSystem.Load();    
+        gameData = SaveSystem.Load();
     }
     public void GameOver()
     {

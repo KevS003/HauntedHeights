@@ -24,7 +24,7 @@ public class GameData
         skinsUnlocked[0]= true;
         skinsUnlocked[1]= false;
         skinsUnlocked[2]=false;
-        volume = 1;//done?
+        volume = .3F;//done?
 
     }
 }
